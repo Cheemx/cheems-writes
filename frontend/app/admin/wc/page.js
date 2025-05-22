@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import {
     Card,
     CardHeader,
@@ -11,7 +11,6 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
-import { Switch } from "@/components/ui/switch"
 import { useRouter } from "next/navigation"
 
 import { unified } from "unified"
@@ -23,7 +22,7 @@ import { transformerCopyButton } from '@rehype-pretty/transformers'
 import axios from "axios"
 import { notFound } from "next/navigation"
 
-const CreateBlog = () => {
+const CreateDailyBlog = () => {
     const router = useRouter()
 
     const [title, setTitle] = useState("")
@@ -35,7 +34,6 @@ const CreateBlog = () => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState("")
 
-    // Convert Markdown to HTML on content change
     useEffect(() => {
         const convertMarkdown = async () => {
             const file = await unified()
@@ -66,34 +64,30 @@ const CreateBlog = () => {
         setLoading(true)
         setError("")
 
-        try {
-            const res = await axios.post(
-                "http://localhost:8080/api/tech-blogs/create",
-                {
-                    title,
-                    description,
-                    slug,
-                    content
-                },
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    }
+        const res = await axios.post(
+            "http://localhost:8080/api/daily-blogs",
+            {
+                title,
+                description,
+                slug,
+                content
+            },
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
                 }
-            )
-
-            const data = res.data
-
-            if (res.status === 201) {
-                console.log(data)
-                router.push("/blogs")
-            } else {
-                setError(data?.message || "Invalid response")
             }
-        } catch (err) {
-            console.error(err)
-            setError(err.response?.data?.message || "Something went wrong")
+        )
+
+        const data = await res.data
+
+        if (res.status === 200) {
+            console.log(data)
+            router.push("/wc")
+        } else {
+            setError(data || "Invalid credentials")
+            return notFound()
         }
 
         setLoading(false)
@@ -122,7 +116,7 @@ const CreateBlog = () => {
                     {/* Form */}
                     <Card className="w-full bg-background/50 backdrop-blur-sm">
                         <CardHeader>
-                            <CardTitle className="text-xl">Create a New Blog</CardTitle>
+                            <CardTitle className="text-xl">Write Today's Blog ?</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-5">
                             <div className="space-y-1">
@@ -191,4 +185,4 @@ const CreateBlog = () => {
     )
 }
 
-export default CreateBlog
+export default CreateDailyBlog

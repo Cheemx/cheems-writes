@@ -14,7 +14,7 @@ func TechBlogRoutes(router *gin.Engine) {
 		tech.GET("/:slug", controllers.GetTechBlogBySlug)
 
 		tech.Use(middleware.RequireAuth())
-		tech.POST("/", controllers.CreateTechBlog)
+		tech.POST("/create", controllers.CreateTechBlog)
 		tech.PUT("/:slug", controllers.UpdateTechBlog)
 		tech.DELETE("/:slug", controllers.DeleteTechBlog)
 	}
