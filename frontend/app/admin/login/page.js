@@ -34,7 +34,7 @@ const Login = () => {
         if (res.status === 200) {
             console.log(data);            
             localStorage.setItem("token", data.token)
-            router.push("/")
+            router.push("/admin")
         } else {
             setError(data || "Invalid credentials")
         }
