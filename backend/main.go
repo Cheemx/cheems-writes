@@ -29,6 +29,7 @@ func main() {
 		AllowCredentials: true,
 		MaxAge:           12 * time.Hour,
 	}))
+	router.RedirectTrailingSlash = false
 
 	router.POST("/api/admin/login", controllers.AdminLogin)
 	routes.TechBlogRoutes(router)

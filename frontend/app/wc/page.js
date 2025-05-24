@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Link from 'next/link';
 import {
     Card,
@@ -9,24 +9,40 @@ import {
     CardContent,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-
-const blogs = [
-    {
-        title: 'Learning React',
-        date: '2023-10-01',
-        description: 'Today I learned about React hooks and how to manage state effectively.',
-        slug: 'learning-react',
-    },
-    {
-        title: 'Understanding Tailwind CSS',
-        date: '2023-10-02',
-        description: 'I explored Tailwind CSS and how to create responsive designs easily.',
-        slug: 'understanding-tailwind-css',
-    },
-    // Add more blog entries as needed
-];
+import axios from 'axios';
 
 const WhatILearnedToday = () => {
+    const [blogs, setBlogs] = useState([]);
+    const [error, setError] = useState("");
+
+    useEffect(() => {
+        const fetchBlogs = async () => {
+            setError("");
+
+            try {
+                const res = await axios.get("http://localhost:8080/api/daily-blogs/", {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+
+                const data = res.data;
+                console.log(data)                
+
+                if (res.status === 200) {
+                    setBlogs(data);
+                } else {
+                    setError("Error while getting Tech-Blogs");
+                }
+            } catch (e) {
+                console.error(e);
+                setError("Error fetching blogs");
+            }
+        };
+
+        fetchBlogs();
+    }, []);
+
     return (
         <div className="flex flex-col items-center justify-center px-4">
             <div className="sticky top-17 z-0 w-full px-4 py-4 backdrop-blur-md bg-background/80 border-b border-border shadow">
@@ -35,6 +51,9 @@ const WhatILearnedToday = () => {
                 </h1>
             </div>
 
+            {error && (
+                <p className="text-center text-red-500 mt-4">{error}</p>
+            )}
 
             <div className="w-full max-w-2xl space-y-6">
                 {blogs.map((blog) => (
@@ -49,7 +68,7 @@ const WhatILearnedToday = () => {
                             <p className="text-sm text-muted-foreground">{blog.date}</p>
                             <p className="text-sm text-muted-foreground">{blog.description}</p>
                             <Button asChild className="w-fit mt-3">
-                                <Link href={`/wc/${blog.slug}`} passHref>
+                                <Link href={`/daily-blogs/${blog.slug}`} passHref>
                                     Read More
                                 </Link>
                             </Button>

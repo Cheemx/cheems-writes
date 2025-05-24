@@ -14,7 +14,7 @@ func SolutionRoutes(router *gin.Engine) {
 		tech.GET("/:slug", controllers.GetSolutionByProbNum)
 
 		tech.Use(middleware.RequireAuth())
-		tech.POST("/", controllers.CreateSolution)
+		tech.POST("/create", controllers.CreateSolution)
 		tech.DELETE("/:slug", controllers.DeleteSolution)
 	}
 }
