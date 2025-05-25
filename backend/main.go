@@ -21,6 +21,7 @@ func main() {
 	config.ConnectDB()
 
 	router := gin.Default()
+	gin.SetMode(gin.ReleaseMode)
 
 	router.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{"message": "Backend is working!"})
