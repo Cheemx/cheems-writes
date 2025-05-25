@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { unified } from "unified";
@@ -21,7 +21,7 @@ import axios from "axios";
 import { Pencil, Trash } from "lucide-react";
 
 export default function DailyBlog({ params }) {
-    const { slug } = params;
+    const { slug } = use(params);
     const [blog, setBlog] = useState(null);
     const [html, setHtml] = useState("");
     const [error, setError] = useState("");
@@ -114,7 +114,7 @@ export default function DailyBlog({ params }) {
                         <div>
                             <CardTitle className="text-3xl font-bold">{blog.title}</CardTitle>
                             <div className="flex items-center text-sm text-muted-foreground mt-2">
-                                <span className="mr-2">| {blog.description}</span>
+                                <span className="mr-2 italic">| {blog.description}</span>
                                 <Badge variant="outline" className="ml-auto">
                                     {createdDate}
                                 </Badge>

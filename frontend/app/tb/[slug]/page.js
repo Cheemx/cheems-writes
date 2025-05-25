@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { unified } from "unified";
@@ -21,7 +21,7 @@ import axios from "axios";
 import { Pencil, Trash } from "lucide-react";
 
 export default function Solution({ params }) {
-    const { slug } = params;
+    const { slug } = use(params);
     const [blog, setBlog] = useState(null);
     const [html, setHtml] = useState("");
     const [error, setError] = useState("");
@@ -54,12 +54,17 @@ export default function Solution({ params }) {
                                 dark: "github-dark",
                                 light: "github-light",
                             },
-                            transformers: [transformerCopyButton({ visibility: "always" })],
+                            transformers: [
+                                transformerCopyButton({ 
+                                    visibility: "always",
+                                    feedbackDuration: 3_000,
+                                })
+                            ],
                         })
                         .use(rehypeStringify)
                         .process(data.content);
 
-                    setHtml(processed.toString());
+                    setHtml(String(processed));
                 } else {
                     setError("Error while fetching blog by slug");
                 }
@@ -108,13 +113,14 @@ export default function Solution({ params }) {
 
     return (
         <div className="min-h-screen py-8 px-4 max-w-5xl mx-auto">
-            <Card className="bg-background/70 backdrop-blur-sm">
+            <Card className="bg-background/90 backdrop-blur-md shadow-xl border border-border">
                 <CardHeader>
                     <div className="flex justify-between items-start">
                         <div>
                             <CardTitle className="text-3xl font-bold">{blog.title}</CardTitle>
                             <div className="flex items-center text-sm text-muted-foreground mt-2">
-                                <span className="mr-2">| {blog.description}</span>
+                                <span className="mr-2 italic">| {blog.description}</span>
+                                <br/>
                                 <Badge variant="outline" className="ml-auto">
                                     {createdDate}
                                 </Badge>

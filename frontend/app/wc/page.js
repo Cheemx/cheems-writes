@@ -1,6 +1,6 @@
 'use client';
 
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import {
     Card,
@@ -20,14 +20,17 @@ const WhatILearnedToday = () => {
             setError("");
 
             try {
-                const res = await axios.get("http://localhost:8080/api/daily-blogs/", {
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                });
+                const res = await axios.get(
+                    "http://localhost:8080/api/daily-blogs/",
+                    {
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                    }
+                );
 
                 const data = res.data;
-                console.log(data)                
+                console.log(data)
 
                 if (res.status === 200) {
                     setBlogs(data);
@@ -43,11 +46,26 @@ const WhatILearnedToday = () => {
         fetchBlogs();
     }, []);
 
+    if (blogs === null) {
+        return (
+            <>
+                <div className="sticky top-17 z-0 w-full px-4 py-4 backdrop-blur-md bg-background/80 border-b border-border shadow">
+                    <h1 className="text-2xl sm:text-3xl font-bold text-center">
+                        Today I Learned... and Forgot 🧠
+                    </h1>
+                </div>
+                <div className="text-center text-xl text-muted-foreground mt-12">
+                    🚧 Daily Blogs Coming Soon...
+                </div>
+            </>
+        );
+    }
+
     return (
         <div className="flex flex-col items-center justify-center px-4">
             <div className="sticky top-17 z-0 w-full px-4 py-4 backdrop-blur-md bg-background/80 border-b border-border shadow">
                 <h1 className="text-2xl sm:text-3xl font-bold text-center">
-                    What I Learned Today
+                    Today I Learned... and Forgot 🧠
                 </h1>
             </div>
 
@@ -59,16 +77,21 @@ const WhatILearnedToday = () => {
                 {blogs.map((blog) => (
                     <Card
                         key={blog.slug}
-                        className="group transition-all duration-300 hover:scale-[1.01] hover:shadow-xl border border-muted shadow-sm dark:shadow-none hover:border-primary"
+                        className="group transition-all duration-300 hover:scale-[1.02] hover:shadow-xl border border-muted shadow-sm dark:shadow-none hover:border-primary"
                     >
                         <CardHeader>
-                            <CardTitle className="text-xl">{blog.title}</CardTitle>
+                            <CardTitle className="text-lg sm:text-xl">{blog.title}</CardTitle>
                         </CardHeader>
                         <CardContent className="flex flex-col gap-2">
-                            <p className="text-sm text-muted-foreground">{blog.date}</p>
-                            <p className="text-sm text-muted-foreground">{blog.description}</p>
-                            <Button asChild className="w-fit mt-3">
-                                <Link href={`/daily-blogs/${blog.slug}`} passHref>
+                            <p className="text-sm text-muted-foreground line-clamp-3">
+                                {blog.description}
+                            </p>
+                            <p className="text-xs text-muted-foreground">
+                                {new Date(blog.createdAt).toLocaleDateString()}
+                            </p>
+                            <Button asChild variant="default"
+                                className="w-fit mt-3">
+                                <Link href={`/wc/${blog.slug}`} passHref>
                                     Read More
                                 </Link>
                             </Button>
