@@ -5,6 +5,7 @@ import (
 	"backend/controllers"
 	"backend/routes"
 	"log"
+	"os"
 	"time"
 
 	"github.com/gin-contrib/cors"
@@ -35,5 +36,5 @@ func main() {
 	routes.TechBlogRoutes(router)
 	routes.SolutionRoutes(router)
 	routes.DailyBlogRoutes(router)
-	router.Run()
+	router.Run(os.Getenv("PORT"))
 }

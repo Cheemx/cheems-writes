@@ -117,7 +117,7 @@ const CreateDailyBlog = () => {
                     {/* Form */}
                     <Card className="w-full bg-background/50 backdrop-blur-sm">
                         <CardHeader>
-                            <CardTitle className="text-xl">Write Today's Blog ?</CardTitle>
+                            <CardTitle className="text-xl">Write Today&apos;s Blog ?</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-5">
                             <div className="space-y-1">

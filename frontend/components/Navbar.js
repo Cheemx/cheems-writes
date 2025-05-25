@@ -39,7 +39,7 @@ const Navbar = () => {
                             LC-Solutions
                         </Link>
                         <Link href="/wc" className="hover:scale-105 hover:font-semibold transition-transform duration-300">
-                            What's Cookin'?
+                            What&apos;s Cookin&apos; ?
                         </Link>
                         <ModeToggle />
                     </div>
