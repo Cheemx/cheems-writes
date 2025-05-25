@@ -33,17 +33,24 @@ const projects = [
     },
 ]
 
-const techSkills = [
-    "C++, Python, JavaScript, Go",
-    "Node.js, Go (mux, gin)",
-    "WebSockets, REST APIs, ERP, Web Architecture",
-    "VS Code, Git, Postman, Bash",
-    "CN, OS, DBMS",
-];
+const techSkills = {
+    "Programming Languages Known": ["C++", "Python", "JavaScript", "Go"],
+    "Frameworks Worked On": ["Node.js", "Go (mux, gin)", "React", "Next"],
+    "Technologies Familiar With": [
+        "Web Architecture",
+        "REST APIs",
+        "ERP Systems",
+        "WebSockets",
+    ],
+    "Databases":["MongoDB","(I'll Learn Postgres soon!)"],
+    "Tools I Use": ["VS Code", "Git", "Postman", "Bash"],
+    "Core Subjects": ["Computer Networks", "Operating Systems", "DBMS"],
+};
+
 
 export default function IntroSection() {
     return (
-        <div className="px-6 py-6 bg-background/50 backdrop-blur-sm sticky w-full h-screen">
+        <div className="px-6 py-6 bg-background/50 backdrop-blur-sm sticky w-full h-full">
             {/* Header with HoverCard positioned below */}
             <h2 className="text-3xl font-bold cursor-default">
                 <HoverCard openDelay={100} closeDelay={300}>
@@ -54,7 +61,7 @@ export default function IntroSection() {
                     </HoverCardTrigger>
                     <HoverCardContent side="bottom" align="start" className="w-80">
                         <p className="text-sm text-muted-foreground">
-                            Backend enthusiast | Final Year Undergraduate
+                            Backend in Golang! | Final Year Undergrad
                         </p>
                     </HoverCardContent>
                 </HoverCard>
@@ -74,6 +81,29 @@ export default function IntroSection() {
                     </Link>
                 </Button>
             </div>
+
+            {/* Self Introduction Section */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="relative my-8 pl-6 border-l-4 border-primary"
+            >
+                <p className="text-base leading-relaxed text-foreground/90 italic">
+                    Hi! This is <span className="font-semibold text-foreground">Chinmay</span>. I enjoy exploring the fundamentals and functioning of backend systems. I wouldn’t call myself a “backend enthusiast” just yet — but I’m genuinely eager to learn more, especially about <span className="font-medium text-primary">Distributed Systems</span>.
+                    <br /><br />
+                    I’m a <span className="font-medium text-foreground">2025 pass-out</span>, expecting to graduate in <span className="font-medium text-foreground">June 2025</span>. Right now, I’m actively looking for a <span className="font-medium text-foreground">junior developer</span> or <span className="font-medium text-foreground">trainee role</span> in backend development.
+                    <br /><br />
+                    I once heard: <span className="text-foreground font-medium">“If I don't show what I know, people (especially recruiters) won’t know what I know!”</span> — so I built this platform to share what I learn. This site has three main sections: <span className="font-medium text-primary">Tech Blogs</span>, <span className="font-medium text-primary">LC Solutions</span>, and <span className="font-medium text-primary">What's Cookin'</span>. I aim to post something every 2–3 days.
+                    <br /><br />
+                    I might add notifications later if it feels necessary — till then,
+                    <br />
+                    <span className="font-semibold text-primary">Enjoy the show!</span>
+                </p>
+            </motion.div>
+
+
 
             {/* Projects */}
             <p className="text-2xl font-semibold mt-6 mb-4">Projects:</p>
@@ -110,17 +140,25 @@ export default function IntroSection() {
 
             {/* Technical Skills with slide-in animation */}
             <p className="text-2xl font-semibold mt-6">Technical Skills:</p>
-            <motion.ul
+            <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                className="text-sm text-muted-foreground mt-2 space-y-2 list-disc list-inside"
+                className="mt-2 space-y-4 text-sm text-muted-foreground"
             >
-                {techSkills.map((skill, idx) => (
-                    <li key={idx}>{skill}</li>
+                {Object.entries(techSkills).map(([category, items]) => (
+                    <div key={category}>
+                        <p className="font-medium text-foreground">{category}:</p>
+                        <ul className="list-disc list-inside ml-4">
+                            {items.map((item, idx) => (
+                                <li key={idx}>{item}</li>
+                            ))}
+                        </ul>
+                    </div>
                 ))}
-            </motion.ul>
+            </motion.div>
+
         </div>
     )
 }

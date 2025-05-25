@@ -66,7 +66,7 @@ const CreateDailyBlog = () => {
         setError("")
 
         const res = await axios.post(
-            "http://localhost:8080/api/daily-blogs",
+            "http://localhost:8080/api/daily-blogs/create",
             {
                 title,
                 description,
@@ -83,7 +83,7 @@ const CreateDailyBlog = () => {
 
         const data = await res.data
 
-        if (res.status === 200) {
+        if (res.status === 201) {
             console.log(data)
             router.push("/wc")
         } else {

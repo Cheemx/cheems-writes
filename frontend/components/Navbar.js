@@ -26,7 +26,7 @@ const Navbar = () => {
                 <div className="container mx-auto flex justify-between items-center">
                     <Link href={"/"}>
                         <div className="text-lg font-bold">
-                            Cheemx-writes
+                            Cheems-writes
                         </div>
                     </Link>
                     <div className='hidden md:flex space-x-4 items-center'>

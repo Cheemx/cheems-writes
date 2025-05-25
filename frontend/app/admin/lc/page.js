@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { useRouter } from "next/navigation"
+import axios from "axios"
 
 const CreateLCSolution = () => {
     const router = useRouter()
@@ -28,12 +29,11 @@ const CreateLCSolution = () => {
         setError("")
 
         const res = await axios.post(
-            "http://localhost:8080/api/solution",
+            "http://localhost:8080/api/solution/create",
             {
-                title,
-                description,
-                slug,
-                content
+                problemNumber,
+                problemName,
+                solutionLink
             },
             {
                 headers: {
@@ -45,9 +45,9 @@ const CreateLCSolution = () => {
 
         const data = await res.data
 
-        if (res.status === 200) {
+        if (res.status === 201) {
             console.log(data)
-            router.push("/blogs")
+            router.push("/lc")
         } else {
             setError(data || "Invalid credentials")
             return notFound()

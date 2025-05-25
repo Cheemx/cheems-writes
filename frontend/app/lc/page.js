@@ -13,12 +13,12 @@ import axios from 'axios';
 
 const SolutionsPage = () => {
     const [solutions, setSolutions] = useState([]);
-    const [error, setError] = useState("");
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchBlogs = async () => {
-            setError("");
-
+            setError('');
             try {
                 const res = await axios.get("http://localhost:8080/api/solution/", {
                     headers: {
@@ -26,42 +26,55 @@ const SolutionsPage = () => {
                     },
                 });
 
-                const data = res.data;
-                console.log(data)
-
                 if (res.status === 200) {
-                    setSolutions(data);
+                    setSolutions(res.data);
                 } else {
-                    setError("Error while getting Tech-Blogs");
+                    setError("Error while getting solutions.");
                 }
             } catch (e) {
                 console.error(e);
-                setError("Error fetching blogs");
+                setError("Error fetching solutions.");
+            } finally {
+                setLoading(false);
             }
         };
 
         fetchBlogs();
     }, []);
 
-    if (!solutions){
-        setError("No Solutions")
-        return
+    if (loading) {
+        return <p className="text-center mt-6 text-muted-foreground">Loading...</p>;
+    }
+
+    if (error) {
+        return <p className="text-center text-red-500 mt-6">{error}</p>;
+    }
+
+    if (solutions === null) {
+        return (
+            <>
+                <div className="sticky top-17 z-0 w-full px-4 py-4 backdrop-blur-md bg-background/80 border-b border-border shadow">
+                    <h1 className="text-2xl sm:text-3xl font-bold text-center">
+                        Occasionally Smarter Than Yesterday 👽
+                    </h1>
+                </div>
+                <div className="text-center text-xl text-muted-foreground mt-12">
+                    🚧 Solutions Coming Soon...
+                </div>
+            </>
+        );
     }
 
     return (
         <div className="p-0 px-2 sm:px-4 md:px-6">
             <div className="sticky top-17 z-0 w-full px-4 py-4 backdrop-blur-md bg-background/80 border-b border-border shadow">
                 <h1 className="text-2xl sm:text-3xl font-bold text-center">
-                    I try LeetCode (Sometimes 🫡)
+                    Occasionally Smarter Than Yesterday 👽
                 </h1>
             </div>
 
-            {(error || !solutions) && (
-                <p className="text-center text-red-500 mt-4">{error}</p>
-            )}
-
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-                {solutions && solutions.map((solution) => (
+                {solutions.map((solution) => (
                     <Card
                         key={solution.number}
                         className="group transition-all duration-300 hover:scale-[1.02] hover:shadow-xl border border-muted shadow-sm dark:shadow-none hover:border-primary"
@@ -83,7 +96,6 @@ const SolutionsPage = () => {
                 ))}
             </div>
         </div>
-
     );
 };
 
