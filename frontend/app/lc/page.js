@@ -42,10 +42,6 @@ const SolutionsPage = () => {
         fetchBlogs();
     }, []);
 
-    if (loading) {
-        return <p className="text-center mt-6 text-muted-foreground">Loading...</p>;
-    }
-
     if (error) {
         return <p className="text-center text-red-500 mt-6">{error}</p>;
     }

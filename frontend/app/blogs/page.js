@@ -48,11 +48,11 @@ const Blogs = () => {
             <>
                 <div className="sticky top-17 z-0 w-full px-4 py-4 backdrop-blur-md bg-background/80 border-b border-border shadow">
                     <h1 className="text-2xl sm:text-3xl font-bold text-center">
-                        What I Learned Today
+                        So That&apos;s How It Works 🤯
                     </h1>
                 </div>
                 <div className="text-center text-xl text-muted-foreground mt-12">
-                    🚧 Daily Blogs Coming Soon...
+                    🚧 Tech Blogs Coming Soon...
                 </div>
             </>
         );
