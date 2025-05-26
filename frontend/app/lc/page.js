@@ -20,7 +20,7 @@ const SolutionsPage = () => {
         const fetchBlogs = async () => {
             setError('');
             try {
-                const res = await axios.get("http://localhost:8080/api/solution/", {
+                const res = await axios.get("https://cheems-writes.onrender.com/api/solution/", {
                     headers: {
                         'Content-Type': 'application/json',
                     },

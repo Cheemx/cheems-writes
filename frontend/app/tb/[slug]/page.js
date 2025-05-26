@@ -35,7 +35,7 @@ export default function Solution({ params }) {
                 const storedToken = localStorage.getItem("token");
                 setToken(storedToken || "");
 
-                const res = await axios.get(`http://localhost:8080/api/tech-blogs/${slug}`, {
+                const res = await axios.get(`https://cheems-writes.onrender.com/api/tech-blogs/${slug}`, {
                     headers: {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${storedToken}`,
@@ -83,7 +83,7 @@ export default function Solution({ params }) {
         if (!confirm("Are you sure you want to delete this blog?")) return;
 
         try {
-            const res = await axios.delete(`http://localhost:8080/api/tech-blogs/${slug}`, {
+            const res = await axios.delete(`https://cheems-writes.onrender.com/api/tech-blogs/${slug}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
