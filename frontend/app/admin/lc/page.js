@@ -25,13 +25,14 @@ const CreateLCSolution = () => {
 
     const handleSubmit = async () => {
         const token = localStorage.getItem("token")
+        const num = parseInt(problemNumber)
         setLoading(true)
         setError("")
 
         const res = await axios.post(
             "https://cheems-writes.onrender.com/api/solution/create",
             {
-                problemNumber,
+                num,
                 problemName,
                 solutionLink
             },
