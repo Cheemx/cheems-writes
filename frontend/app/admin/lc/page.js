@@ -29,7 +29,7 @@ const CreateLCSolution = () => {
         setError("")
 
         const res = await axios.post(
-            "http://localhost:8080/api/solution/create",
+            "https://cheems-writes.onrender.com/api/solution/create",
             {
                 problemNumber,
                 problemName,

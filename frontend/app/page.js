@@ -15,7 +15,7 @@ import { motion } from "framer-motion"
 const projects = [
     {
         name: "ChitChat",
-        desc: "Real-time messaging using WebSockets and Golang-MongoDB backend.",
+        desc: "Real-time messaging using WebSockets and Go-MongoDB backend.",
         live: "https://chit-chat-green.vercel.app/",
         git: "https://github.com/Cheemx/Chit-Chat",
     },
@@ -28,7 +28,7 @@ const projects = [
     {
         name: "Cheems-Writes",
         desc: "Markdown blogging with Next.js, Golang, MongoDB.",
-        live: "https://your-portfolio-live-link.com",
+        live: "https://cheems-writes.vercel.app/",
         git: "https://github.com/Cheemx/cheems-writes",
     },
 ]
@@ -42,7 +42,7 @@ const techSkills = {
         "ERP Systems",
         "WebSockets",
     ],
-    "Databases":["MongoDB","(I'll Learn Postgres soon!)"],
+    "Databases": ["MongoDB", "(I'll Learn Postgres soon!)"],
     "Tools I Use": ["VS Code", "Git", "Postman", "Bash"],
     "Core Subjects": ["Computer Networks", "Operating Systems", "DBMS"],
 };
@@ -95,7 +95,7 @@ export default function IntroSection() {
                     <br /><br />
                     I&apos;m a <span className="font-medium text-foreground">2025 pass-out</span>, expecting to graduate in <span className="font-medium text-foreground">June 2025</span>. Right now, I&apos;m actively looking for a <span className="font-medium text-foreground">junior developer</span> or <span className="font-medium text-foreground">trainee role</span> in backend development.
                     <br /><br />
-                    I once heard: <span className="text-foreground font-medium">“If I don&apos;t show what I know, people (especially recruiters) won&apos;t know what I know!”</span> — so I built this platform to share what I learn. This site has three main sections: <span className="font-medium text-primary">Tech Blogs</span>, <span className="font-medium text-primary">LC Solutions</span>, and <span className="font-medium text-primary">What&apos;s Cookin&apos;</span>. I aim to post something every 2–3 days.
+                    I once heard: <span className="text-foreground font-medium">“If I don&apos;t show what I know, people (especially recruiters) won&apos;t know what I know!”</span> — so I built this platform to share what I learn. This site has three main sections: <span className="font-medium text-primary">Tech Blogs</span>, <span className="font-medium text-primary">LC Solutions</span>, and <span className="font-medium text-primary">What&apos;s Cookin&apos;?</span>. I aim to post something every 2–3 days.
                     <br /><br />
                     I might add notifications later if it feels necessary — till then,
                     <br />
@@ -107,7 +107,13 @@ export default function IntroSection() {
 
             {/* Projects */}
             <p className="text-2xl font-semibold mt-6 mb-4">Projects:</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <p className="text-base leading-relaxed text-foreground/90 italic">
+                On a special note, these project servers are hosted on free Render instances,
+                so they may take up to <span className="font-semibold">50 seconds</span> to load.<br />
+                Thanks for your patience!
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-3">
                 {projects.map((project, idx) => (
                     <motion.div
                         key={idx}
@@ -118,18 +124,22 @@ export default function IntroSection() {
                     >
                         <Card className="w-full h-40 shadow-md dark:shadow-gray-700 hover:shadow-lg dark:hover:shadow-gray-900 transition-shadow duration-300">
                             <CardHeader>
-                                <CardTitle>{project.name}</CardTitle>
+                                <CardTitle className="text-lg">{project.name}</CardTitle>
                             </CardHeader>
                             <CardContent>
                                 <p className="text-sm text-muted-foreground mb-2 line-clamp-3">
                                     {project.desc}
                                 </p>
-                                <div className="flex gap-2">
+                                <div className="flex gap-4">
                                     <Button variant="link" asChild>
-                                        <Link href={project.live} target="_blank">Live Site</Link>
+                                        <Link href={project.live} target="_blank" rel="noopener noreferrer">
+                                            Live Site
+                                        </Link>
                                     </Button>
                                     <Button variant="link" asChild>
-                                        <Link href={project.git} target="_blank">GitHub</Link>
+                                        <Link href={project.git} target="_blank" rel="noopener noreferrer">
+                                            GitHub
+                                        </Link>
                                     </Button>
                                 </div>
                             </CardContent>
@@ -137,6 +147,7 @@ export default function IntroSection() {
                     </motion.div>
                 ))}
             </div>
+
 
             {/* Technical Skills with slide-in animation */}
             <p className="text-2xl font-semibold mt-6">Technical Skills:</p>

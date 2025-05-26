@@ -20,7 +20,7 @@ const Blogs = () => {
             setError("");
 
             try {
-                const res = await axios.get("http://localhost:8080/api/tech-blogs/", {
+                const res = await axios.get("https://cheems-writes.onrender.com/api/tech-blogs/", {
                     headers: {
                         'Content-Type': 'application/json',
                     },
@@ -62,7 +62,7 @@ const Blogs = () => {
         <div className="p-0 px-2 sm:px-4 md:px-6">
             <div className="sticky top-17 z-0 w-full px-4 py-4 backdrop-blur-md bg-background/80 border-b border-border shadow">
                 <h1 className="text-2xl sm:text-3xl font-bold text-center">
-                    So That’s How It Works 🤯
+                    So That&apos;s How It Works 🤯
                 </h1>
             </div>
 

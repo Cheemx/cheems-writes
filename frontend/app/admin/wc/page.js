@@ -66,7 +66,7 @@ const CreateDailyBlog = () => {
         setError("")
 
         const res = await axios.post(
-            "http://localhost:8080/api/daily-blogs/create",
+            "https://cheems-writes.onrender.com/api/daily-blogs/create",
             {
                 title,
                 description,

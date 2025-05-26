@@ -21,7 +21,7 @@ const WhatILearnedToday = () => {
 
             try {
                 const res = await axios.get(
-                    "http://localhost:8080/api/daily-blogs/",
+                    "https://cheems-writes.onrender.com/api/daily-blogs/",
                     {
                         headers: {
                             'Content-Type': 'application/json',

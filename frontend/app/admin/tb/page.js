@@ -68,7 +68,7 @@ const CreateBlog = () => {
 
         try {
             const res = await axios.post(
-                "http://localhost:8080/api/tech-blogs/create",
+                "https://cheems-writes.onrender.com/api/tech-blogs/create",
                 {
                     title,
                     description,

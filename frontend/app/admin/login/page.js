@@ -20,7 +20,7 @@ const Login = () => {
         setError("")
 
         const res = await axios.post(
-            "http://localhost:8080/api/admin/login",
+            "https://cheems-writes.onrender.com/api/admin/login",
             {username, password},
             {
                 headers: {
