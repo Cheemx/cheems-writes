@@ -39,7 +39,7 @@ const Navbar = () => {
                             LC-Solutions
                         </Link>
                         <Link href="/wc" className="hover:scale-105 hover:font-semibold transition-transform duration-300">
-                            What&apos;s Cookin&apos; ?
+                            What&apos;s Cookin&apos;?
                         </Link>
                         <ModeToggle />
                     </div>
@@ -63,7 +63,7 @@ const Navbar = () => {
                                     <Link href="/" className="px-4 py-2" onClick={() => setIsOpen(false)}>Home</Link>
                                     <Link href="/blogs" className="px-4 py-2" onClick={() => setIsOpen(false)}>Tech Blogs</Link>
                                     <Link href="/lc" className="px-4 py-2" onClick={() => setIsOpen(false)}>LC Solutions</Link>
-                                    <Link href="/wc" className="px-4 py-2" onClick={() => setIsOpen(false)}>Contact Me</Link>
+                                    <Link href="/wc" className="px-4 py-2" onClick={() => setIsOpen(false)}>What&apos;s Cookin&apos;?</Link>
                                 </div>
                             </SheetContent>
                         </Sheet>
