@@ -71,13 +71,18 @@ export default function IntroSection() {
             {/* Links */}
             <div className="flex gap-3 my-4">
                 <Button variant="outline" asChild className="gap-2">
-                    <Link href="https://github.com/Cheemx" target="_blank">
+                    <Link href="https://github.com/Cheemx" target="_blank" rel="noopener noreferrer">
                         GitHub <ExternalLink size={14} />
                     </Link>
                 </Button>
                 <Button variant="outline" asChild className="gap-2">
-                    <Link href="https://leetcode.com/u/myself_cm_/" target="_blank">
+                    <Link href="https://leetcode.com/u/myself_cm_/" target="_blank" rel="noopener noreferrer">
                         LeetCode <ExternalLink size={14} />
+                    </Link>
+                </Button>
+                <Button variant="outline" asChild className="gap-2">
+                    <Link href="https://mail.google.com/mail/?view=cm&fs=1&to=chinmaymahajan999@gmail.com" target="_blank" rel="noopener noreferrer">
+                        Email <ExternalLink size={14} />
                     </Link>
                 </Button>
             </div>
