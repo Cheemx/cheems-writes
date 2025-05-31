@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import axios from 'axios';
+import LoadingDidYouKnow from '@/components/loading';
 
 const SolutionsPage = () => {
     const [solutions, setSolutions] = useState([]);
@@ -41,6 +42,8 @@ const SolutionsPage = () => {
 
         fetchBlogs();
     }, []);
+
+    if(loading) return <LoadingDidYouKnow />
 
     if (error) {
         return <p className="text-center text-red-500 mt-6">{error}</p>;

@@ -19,6 +19,7 @@ import rehypePrettyCode from "rehype-pretty-code";
 import { transformerCopyButton } from "@rehype-pretty/transformers";
 import axios from "axios";
 import { Pencil, Trash } from "lucide-react";
+import LoadingDidYouKnow from "@/components/loading";
 
 export default function DailyBlog({ params }) {
     const { slug } = use(params);
@@ -49,14 +50,23 @@ export default function DailyBlog({ params }) {
                     const processed = await unified()
                         .use(remarkParse)
                         .use(remarkRehype)
+                        .use(rehypeDocument)
+                        .use(rehypeFormat)
+                        .use(rehypeStringify)
+                        .use(rehypeSlug)
+                        .use(rehypeAutolinkHeadings)
                         .use(rehypePrettyCode, {
                             theme: {
                                 dark: "github-dark",
                                 light: "github-light",
                             },
-                            transformers: [transformerCopyButton({ visibility: "always" })],
+                            transformers: [
+                                transformerCopyButton({
+                                    visibility: "always",
+                                    feedbackDuration: 3_000,
+                                })
+                            ],
                         })
-                        .use(rehypeStringify)
                         .process(data.content);
 
                     setHtml(processed.toString());
@@ -96,7 +106,7 @@ export default function DailyBlog({ params }) {
         }
     };
 
-    if (loading) return <div className="p-6 text-center">Loading...</div>;
+    if (loading) return <LoadingDidYouKnow />
     if (error) return <div className="p-6 text-red-500 text-center">{error}</div>;
     if (!blog) return null;
 
