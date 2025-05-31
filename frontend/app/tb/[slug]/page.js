@@ -19,6 +19,11 @@ import rehypePrettyCode from "rehype-pretty-code";
 import { transformerCopyButton } from "@rehype-pretty/transformers";
 import axios from "axios";
 import { Pencil, Trash } from "lucide-react";
+import rehypeDocument from "rehype-document";
+import rehypeFormat from "rehype-format";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import LoadingDidYouKnow from "@/components/loading";
 
 export default function Solution({ params }) {
     const { slug } = use(params);
@@ -49,6 +54,11 @@ export default function Solution({ params }) {
                     const processed = await unified()
                         .use(remarkParse)
                         .use(remarkRehype)
+                        .use(rehypeDocument)
+                        .use(rehypeFormat)
+                        .use(rehypeStringify)
+                        .use(rehypeSlug)
+                        .use(rehypeAutolinkHeadings)
                         .use(rehypePrettyCode, {
                             theme: {
                                 dark: "github-dark",
@@ -61,7 +71,6 @@ export default function Solution({ params }) {
                                 })
                             ],
                         })
-                        .use(rehypeStringify)
                         .process(data.content);
 
                     setHtml(String(processed));
@@ -101,7 +110,7 @@ export default function Solution({ params }) {
         }
     };
 
-    if (loading) return <div className="p-6 text-center">Loading...</div>;
+    if (loading) return <LoadingDidYouKnow />
     if (error) return <div className="p-6 text-red-500 text-center">{error}</div>;
     if (!blog) return null;
 
@@ -119,12 +128,14 @@ export default function Solution({ params }) {
                         <div>
                             <CardTitle className="text-3xl font-bold">{blog.title}</CardTitle>
                             <div className="flex items-center text-sm text-muted-foreground mt-2">
-                                <span className="mr-2 italic border-l-4 border-primary">{blog.description}</span>
+                                <div className="mr-2 italic font-semibold pl-4 border-l-4 border-primary text-lg">{blog.description}</div>
                                 <br />
                             </div>
-                            <Badge variant="outline" className="ml-auto">
+                            <div className="pt-2 pl-4">
+                                <Badge variant="outline" className="ml-auto py-1">
                                 {createdDate}
                             </Badge>
+                            </div>
                         </div>
 
                         {token && (

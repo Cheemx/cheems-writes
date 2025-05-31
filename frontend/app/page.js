@@ -127,12 +127,12 @@ export default function IntroSection() {
                         transition={{ duration: 0.5, delay: idx * 0.1 }}
                         viewport={{ once: true }}
                     >
-                        <Card className="w-full h-40 shadow-md dark:shadow-gray-700 hover:shadow-lg dark:hover:shadow-gray-900 transition-shadow duration-300">
+                        <Card className="w-full h-40 shadow-md dark:shadow-gray-700 hover:shadow-lg dark:hover:shadow-gray-900 transition-shadow duration-300 gap-2">
                             <CardHeader>
                                 <CardTitle className="text-lg">{project.name}</CardTitle>
                             </CardHeader>
-                            <CardContent>
-                                <p className="text-sm text-muted-foreground mb-2 line-clamp-3">
+                            <CardContent className="gap-2">
+                                <p className="text-sm text-muted-foreground line-clamp-2">
                                     {project.desc}
                                 </p>
                                 <div className="flex gap-4">

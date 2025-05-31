@@ -10,10 +10,12 @@ import {
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import axios from 'axios';
+import LoadingDidYouKnow from '@/components/loading';
 
 const Blogs = () => {
     const [blogs, setBlogs] = useState([]);
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         const fetchBlogs = async () => {
@@ -37,11 +39,15 @@ const Blogs = () => {
             } catch (e) {
                 console.error(e);
                 setError("Error fetching blogs");
+            } finally {
+                setLoading(false)
             }
         };
 
         fetchBlogs();
     }, []);
+
+    if(loading) return <LoadingDidYouKnow />
 
     if (blogs === null) {
         return (
@@ -82,7 +88,7 @@ const Blogs = () => {
                             </CardTitle>
                         </CardHeader>
                         <CardContent className="flex flex-col gap-2">
-                            <p className="text-sm text-muted-foreground line-clamp-3">
+                            <p className="text-sm text-muted-foreground line-clamp-1">
                                 {blog.description}
                             </p>
                             <p className="text-xs text-muted-foreground">

@@ -40,6 +40,11 @@ const CreateDailyBlog = () => {
             const file = await unified()
                 .use(remarkParse)
                 .use(remarkRehype)
+                .use(rehypeDocument)
+                .use(rehypeFormat)
+                .use(rehypeStringify)
+                .use(rehypeSlug)
+                .use(rehypeAutolinkHeadings)
                 .use(rehypePrettyCode, {
                     theme: {
                         dark: "github-dark",
@@ -47,13 +52,12 @@ const CreateDailyBlog = () => {
                     },
                     transformers: [
                         transformerCopyButton({
-                            visibility: 'always',
+                            visibility: "always",
                             feedbackDuration: 3_000,
-                        }),
+                        })
                     ],
                 })
-                .use(rehypeStringify)
-                .process(content)
+                .process(content);
             setHtmlPreview(String(file))
         }
 

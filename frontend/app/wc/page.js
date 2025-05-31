@@ -10,8 +10,10 @@ import {
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import axios from 'axios';
+import LoadingDidYouKnow from '@/components/loading';
 
 const WhatILearnedToday = () => {
+    const [loading, setLoading] = useState(true)
     const [blogs, setBlogs] = useState([]);
     const [error, setError] = useState("");
 
@@ -40,11 +42,15 @@ const WhatILearnedToday = () => {
             } catch (e) {
                 console.error(e);
                 setError("Error fetching blogs");
+            } finally {
+                setLoading(false)
             }
         };
 
         fetchBlogs();
     }, []);
+
+    if (loading) return <LoadingDidYouKnow />
 
     if (blogs === null) {
         return (
@@ -83,7 +89,7 @@ const WhatILearnedToday = () => {
                             <CardTitle className="text-lg sm:text-xl">{blog.title}</CardTitle>
                         </CardHeader>
                         <CardContent className="flex flex-col gap-2">
-                            <p className="text-sm text-muted-foreground line-clamp-3">
+                            <p className="text-sm text-muted-foreground line-clamp-1">
                                 {blog.description}
                             </p>
                             <p className="text-xs text-muted-foreground">
