@@ -55,7 +55,7 @@ export default function Solution({ params }) {
                                 light: "github-light",
                             },
                             transformers: [
-                                transformerCopyButton({ 
+                                transformerCopyButton({
                                     visibility: "always",
                                     feedbackDuration: 3_000,
                                 })
@@ -119,12 +119,12 @@ export default function Solution({ params }) {
                         <div>
                             <CardTitle className="text-3xl font-bold">{blog.title}</CardTitle>
                             <div className="flex items-center text-sm text-muted-foreground mt-2">
-                                <span className="mr-2 italic">| {blog.description}</span>
-                                <br/>
-                                <Badge variant="outline" className="ml-auto">
-                                    {createdDate}
-                                </Badge>
+                                <span className="mr-2 italic border-l-4 border-primary">{blog.description}</span>
+                                <br />
                             </div>
+                            <Badge variant="outline" className="ml-auto">
+                                {createdDate}
+                            </Badge>
                         </div>
 
                         {token && (
