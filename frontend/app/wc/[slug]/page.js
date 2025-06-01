@@ -19,6 +19,10 @@ import rehypePrettyCode from "rehype-pretty-code";
 import { transformerCopyButton } from "@rehype-pretty/transformers";
 import axios from "axios";
 import { Pencil, Trash } from "lucide-react";
+import rehypeDocument from "rehype-document";
+import rehypeFormat from "rehype-format";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import LoadingDidYouKnow from "@/components/loading";
 
 export default function DailyBlog({ params }) {
