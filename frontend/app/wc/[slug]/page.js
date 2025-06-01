@@ -128,10 +128,13 @@ export default function DailyBlog({ params }) {
                         <div>
                             <CardTitle className="text-3xl font-bold">{blog.title}</CardTitle>
                             <div className="flex items-center text-sm text-muted-foreground mt-2">
-                                <span className="mr-2 italic">| {blog.description}</span>
-                                <Badge variant="outline" className="ml-auto">
-                                    {createdDate}
-                                </Badge>
+                                <div className="mr-2 italic font-semibold pl-4 border-l-4 border-primary text-lg">{blog.description}</div>
+                                <br />
+                            </div>
+                            <div className="pt-2 pl-4">
+                                <Badge variant="outline" className="ml-auto py-1">
+                                {createdDate}
+                            </Badge>
                             </div>
                         </div>
 
