@@ -1,3 +1,4 @@
+// Page to create a daily-blog
 "use client"
 
 import { useState, useEffect } from "react"
@@ -74,7 +75,7 @@ const CreateDailyBlog = () => {
         setError("")
 
         const res = await axios.post(
-            "https://cheems-writes.onrender.com/api/daily-blogs/create",
+            "https://s6p67ynfyb.execute-api.ap-south-1.amazonaws.com/wc/create",
             {
                 title,
                 description,

@@ -1,3 +1,4 @@
+// Page to get all daily Blogs
 'use client';
 
 import React, { useEffect, useState } from 'react';
@@ -23,7 +24,7 @@ const WhatILearnedToday = () => {
 
             try {
                 const res = await axios.get(
-                    "https://cheems-writes.onrender.com/api/daily-blogs/",
+                    "https://s6p67ynfyb.execute-api.ap-south-1.amazonaws.com/wc/getAll",
                     {
                         headers: {
                             'Content-Type': 'application/json',

@@ -1,3 +1,4 @@
+// Page to represent a single blog by slug value
 "use client";
 
 import {
@@ -40,7 +41,7 @@ export default function DailyBlog({ params }) {
                 const storedToken = localStorage.getItem("token");
                 setToken(storedToken || "");
 
-                const res = await axios.get(`https://cheems-writes.onrender.com/api/daily-blogs/${slug}`, {
+                const res = await axios.get(`https://s6p67ynfyb.execute-api.ap-south-1.amazonaws.com/wc/getOne/${slug}`, {
                     headers: {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${storedToken}`,
@@ -90,7 +91,7 @@ export default function DailyBlog({ params }) {
 
     const handleDelete = async () => {
         if (!confirm("Are you sure you want to delete this blog?")) return;
-
+// New Delete API need to be created yet!
         try {
             const res = await axios.delete(`https://cheems-writes.onrender.com/api/daily-blogs/${slug}`, {
                 headers: {

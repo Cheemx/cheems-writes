@@ -1,3 +1,4 @@
+// Page to represent specific tech-blog according to slug value
 "use client";
 
 import {
@@ -40,7 +41,7 @@ export default function Solution({ params }) {
                 const storedToken = localStorage.getItem("token");
                 setToken(storedToken || "");
 
-                const res = await axios.get(`https://cheems-writes.onrender.com/api/tech-blogs/${slug}`, {
+                const res = await axios.get(`https://s6p67ynfyb.execute-api.ap-south-1.amazonaws.com/tb/getOne/${slug}`, {
                     headers: {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${storedToken}`,

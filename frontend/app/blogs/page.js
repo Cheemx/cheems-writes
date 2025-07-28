@@ -1,3 +1,4 @@
+// Page to get all tech-blogs
 'use client';
 
 import React, { useEffect, useState } from 'react';
@@ -22,7 +23,7 @@ const Blogs = () => {
             setError("");
 
             try {
-                const res = await axios.get("https://cheems-writes.onrender.com/api/tech-blogs/", {
+                const res = await axios.get("https://s6p67ynfyb.execute-api.ap-south-1.amazonaws.com/tb/getall", {
                     headers: {
                         'Content-Type': 'application/json',
                     },

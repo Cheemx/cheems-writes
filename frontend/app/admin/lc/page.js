@@ -1,4 +1,4 @@
-// app/(admin)/lc/create/page.tsx
+// Page to create a leetcode solution
 
 "use client"
 
@@ -30,7 +30,7 @@ const CreateLCSolution = () => {
         setError("")
 
         const res = await axios.post(
-            "https://cheems-writes.onrender.com/api/solution/create",
+            "https://s6p67ynfyb.execute-api.ap-south-1.amazonaws.com/lc/create",
             {
                 num,
                 problemName,

@@ -1,3 +1,4 @@
+// Login page
 "use client"
 
 import { useState } from "react"
@@ -20,7 +21,7 @@ const Login = () => {
         setError("")
 
         const res = await axios.post(
-            "https://cheems-writes.onrender.com/api/admin/login",
+            "https://s6p67ynfyb.execute-api.ap-south-1.amazonaws.com/login",
             {username, password},
             {
                 headers: {

@@ -75,7 +75,7 @@ const CreateBlog = () => {
 
         try {
             const res = await axios.post(
-                "https://cheems-writes.onrender.com/api/tech-blogs/create",
+                "https://s6p67ynfyb.execute-api.ap-south-1.amazonaws.com/tb/create",
                 {
                     title,
                     description,
