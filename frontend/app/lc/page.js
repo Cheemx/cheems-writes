@@ -76,18 +76,18 @@ const SolutionsPage = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
                 {solutions.map((solution) => (
                     <Card
-                        key={solution.number}
+                        key={solution.id}
                         className="group transition-all duration-300 hover:scale-[1.02] hover:shadow-xl border border-muted shadow-sm dark:shadow-none hover:border-primary"
                     >
                         <CardHeader>
                             <CardTitle className="text-lg sm:text-xl">
-                                {`Problem ${solution.number}: ${solution.title}`}
+                                {`Problem ${solution.problemNo}: ${solution.name}`}
                             </CardTitle>
                         </CardHeader>
                         <CardContent className="flex flex-col gap-2">
-                            <p className="text-sm text-muted-foreground">{solution.date}</p>
+                            <p className="text-sm text-muted-foreground">{new Date(solution.createdAt).toLocaleDateString()}</p>
                             <Button asChild className="w-fit mt-2">
-                                <Link href={solution.link} passHref>
+                                <Link href={solution.link} passHref target='_blank'>
                                     See Solution
                                 </Link>
                             </Button>
