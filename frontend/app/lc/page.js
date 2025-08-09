@@ -29,6 +29,7 @@ const SolutionsPage = () => {
                 });
 
                 if (res.status === 200) {
+                    console.log(res.data);                    
                     setSolutions(res.data);
                 } else {
                     setError("Error while getting solutions.");
