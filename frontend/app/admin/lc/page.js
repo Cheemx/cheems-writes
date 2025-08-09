@@ -32,9 +32,9 @@ const CreateLCSolution = () => {
         const res = await axios.post(
             "https://s6p67ynfyb.execute-api.ap-south-1.amazonaws.com/lc/create",
             {
-                num,
-                problemName,
-                solutionLink
+                problemNo: num,
+                name: problemName,
+                link: solutionLink
             },
             {
                 headers: {
