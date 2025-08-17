@@ -3,6 +3,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import SpiderCanvas from "@/components/spider";
+import { Footer } from "@/components/Footer";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -41,6 +42,7 @@ export default function RootLayout({ children }) {
                     <div className="relative z-10">
                         <Navbar />
                         <main className="min-h-screen flex flex-col">{children}</main>
+                        <Footer />
                     </div>
                 </ThemeProvider>
             </body>
