@@ -34,7 +34,7 @@ const projects = [
 ]
 
 const techSkills = {
-    "Programming Languages Known": ["C++", "Python", "JavaScript", "Go"],
+    "Programming Languages Known": ["Go", "C++", "Python", "JavaScript"],
     "Frameworks Worked On": ["Node.js", "Go (mux, gin)", "React", "Next"],
     "Technologies Familiar With": [
         "Web Architecture",
@@ -61,7 +61,7 @@ export default function IntroSection() {
                     </HoverCardTrigger>
                     <HoverCardContent side="bottom" align="start" className="w-80">
                         <p className="text-sm text-muted-foreground">
-                            Backend in Golang! | Final Year Undergrad
+                            Backend in Golang! 
                         </p>
                     </HoverCardContent>
                 </HoverCard>
@@ -98,7 +98,7 @@ export default function IntroSection() {
                 <p className="text-base leading-relaxed text-foreground/90 italic">
                     Hi! This is <span className="font-semibold text-foreground">Chinmay</span>. I enjoy exploring the fundamentals and functioning of backend systems. I wouldn&apos;t call myself a “backend enthusiast” just yet — but I&apos;m genuinely eager to learn more, especially about <span className="font-medium text-primary">Distributed Systems</span>.
                     <br /><br />
-                    I&apos;m a <span className="font-medium text-foreground">2025 pass-out</span>, expecting to graduate in <span className="font-medium text-foreground">June 2025</span>. Right now, I&apos;m actively looking for a <span className="font-medium text-foreground">junior developer</span> or <span className="font-medium text-foreground">trainee role</span> in backend development.
+                    I&apos;m a <span className="font-medium text-foreground">2025 pass-out</span>, completed my graduation in <span className="font-medium text-foreground">June 2025</span>. Right now, I&apos;m actively looking for a <span className="font-medium text-foreground">junior developer</span> or <span className="font-medium text-foreground">trainee role</span> in backend development.
                     <br /><br />
                     I once heard: <span className="text-foreground font-medium">“If I don&apos;t show what I know, people (especially recruiters) won&apos;t know what I know!”</span> — so I built this platform to share what I learn. This site has three main sections: <span className="font-medium text-primary">Tech Blogs</span>, <span className="font-medium text-primary">LC Solutions</span>, and <span className="font-medium text-primary">What&apos;s Cookin&apos;?</span>. I aim to post something every 2–3 days.
                     <br /><br />
