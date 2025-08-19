@@ -30,7 +30,7 @@ const Blogs = () => {
                 });
 
                 const data = res.data;
-                console.log(data)                
+                console.log(data)
 
                 if (res.status === 200) {
                     setBlogs(data);
@@ -48,14 +48,14 @@ const Blogs = () => {
         fetchBlogs();
     }, []);
 
-    if(loading) return <LoadingDidYouKnow />
+    if (loading) return <LoadingDidYouKnow />
 
     if (blogs === null) {
         return (
             <>
                 <div className="sticky top-17 z-0 w-full px-4 py-4 backdrop-blur-md bg-background/80 border-b border-border shadow">
                     <h1 className="text-2xl sm:text-3xl font-bold text-center">
-                        So That&apos;s How It Works 🤯
+                        NOTHING HERE AT THE MOMENT!!!
                     </h1>
                 </div>
                 <div className="text-center text-xl text-muted-foreground mt-12">
@@ -69,7 +69,7 @@ const Blogs = () => {
         <div className="p-0 px-2 sm:px-4 md:px-6">
             <div className="sticky top-17 z-0 w-full px-4 py-4 backdrop-blur-md bg-background/80 border-b border-border shadow">
                 <h1 className="text-2xl sm:text-3xl font-bold text-center">
-                    So That&apos;s How It Works 🤯
+                    Let&apos;s talk about-
                 </h1>
             </div>
 
@@ -78,33 +78,36 @@ const Blogs = () => {
             )}
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-                {blogs.map((blog) => (
-                    <Card
-                        key={blog.slug}
-                        className="group transition-all duration-300 hover:scale-[1.02] hover:shadow-xl border border-muted shadow-sm dark:shadow-none hover:border-primary"
-                    >
-                        <CardHeader>
-                            <CardTitle className="text-lg sm:text-xl">
-                                {blog.title}
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent className="flex flex-col gap-2">
-                            <p className="text-sm text-muted-foreground line-clamp-1">
-                                {blog.description}
-                            </p>
-                            <p className="text-xs text-muted-foreground">
-                                {new Date(blog.createdAt).toLocaleDateString()}
-                            </p>
-                            <div className="mt-3">
-                                <Button asChild variant="default" className="w-fit">
-                                    <Link href={`/tb/${blog.slug}`} passHref>
-                                        Read More
-                                    </Link>
-                                </Button>
-                            </div>
-                        </CardContent>
-                    </Card>
-                ))}
+                {blogs
+                    .slice()
+                    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+                    .map((blog) => (
+                        <Card
+                            key={blog.slug}
+                            className="group transition-all duration-300 hover:scale-[1.02] hover:shadow-xl border border-muted shadow-sm dark:shadow-none hover:border-primary"
+                        >
+                            <CardHeader>
+                                <CardTitle className="text-lg sm:text-xl">
+                                    {blog.title}
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent className="flex flex-col gap-2">
+                                <p className="text-sm text-muted-foreground line-clamp-1">
+                                    {blog.description}
+                                </p>
+                                <p className="text-xs text-muted-foreground">
+                                    {new Date(blog.createdAt).toLocaleDateString()}
+                                </p>
+                                <div className="mt-3">
+                                    <Button asChild variant="default" className="w-fit">
+                                        <Link href={`/tb/${blog.slug}`} passHref>
+                                            Read More
+                                        </Link>
+                                    </Button>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    ))}
             </div>
         </div>
     );

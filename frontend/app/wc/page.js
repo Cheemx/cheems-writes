@@ -58,7 +58,7 @@ const WhatILearnedToday = () => {
             <>
                 <div className="sticky top-17 z-0 w-full px-4 py-4 backdrop-blur-md bg-background/80 border-b border-border shadow">
                     <h1 className="text-2xl sm:text-3xl font-bold text-center">
-                        Today I Learned... and Forgot 🧠
+                        Periodic Tech-Life Rants!
                     </h1>
                 </div>
                 <div className="text-center text-xl text-muted-foreground mt-12">
@@ -72,7 +72,7 @@ const WhatILearnedToday = () => {
         <div className="flex flex-col items-center justify-center px-4">
             <div className="sticky top-17 z-0 w-full px-4 py-4 backdrop-blur-md bg-background/80 border-b border-border shadow">
                 <h1 className="text-2xl sm:text-3xl font-bold text-center">
-                    Today I Learned... and Forgot 🧠
+                    Periodic Tech-Life Rants!
                 </h1>
             </div>
 
@@ -81,30 +81,33 @@ const WhatILearnedToday = () => {
             )}
 
             <div className="w-full max-w-2xl space-y-6">
-                {blogs.map((blog) => (
-                    <Card
-                        key={blog.slug}
-                        className="group transition-all duration-300 hover:scale-[1.02] hover:shadow-xl border border-muted shadow-sm dark:shadow-none hover:border-primary"
-                    >
-                        <CardHeader>
-                            <CardTitle className="text-lg sm:text-xl">{blog.title}</CardTitle>
-                        </CardHeader>
-                        <CardContent className="flex flex-col gap-2">
-                            <p className="text-sm text-muted-foreground line-clamp-1">
-                                {blog.description}
-                            </p>
-                            <p className="text-xs text-muted-foreground">
-                                {new Date(blog.createdAt).toLocaleDateString()}
-                            </p>
-                            <Button asChild variant="default"
-                                className="w-fit mt-3">
-                                <Link href={`/wc/${blog.slug}`} passHref>
-                                    Read More
-                                </Link>
-                            </Button>
-                        </CardContent>
-                    </Card>
-                ))}
+                {blogs
+                    .slice()
+                    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+                    .map((blog) => (
+                        <Card
+                            key={blog.slug}
+                            className="group transition-all duration-300 hover:scale-[1.02] hover:shadow-xl border border-muted shadow-sm dark:shadow-none hover:border-primary"
+                        >
+                            <CardHeader>
+                                <CardTitle className="text-lg sm:text-xl">{blog.title}</CardTitle>
+                            </CardHeader>
+                            <CardContent className="flex flex-col gap-2">
+                                <p className="text-sm text-muted-foreground line-clamp-1">
+                                    {blog.description}
+                                </p>
+                                <p className="text-xs text-muted-foreground">
+                                    {new Date(blog.createdAt).toLocaleDateString()}
+                                </p>
+                                <Button asChild variant="default"
+                                    className="w-fit mt-3">
+                                    <Link href={`/wc/${blog.slug}`} passHref>
+                                        Read More
+                                    </Link>
+                                </Button>
+                            </CardContent>
+                        </Card>
+                    ))}
             </div>
         </div>
     );

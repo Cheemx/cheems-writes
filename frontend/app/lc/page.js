@@ -29,7 +29,7 @@ const SolutionsPage = () => {
                 });
 
                 if (res.status === 200) {
-                    console.log(res.data);                    
+                    console.log(res.data);
                     setSolutions(res.data);
                 } else {
                     setError("Error while getting solutions.");
@@ -45,7 +45,7 @@ const SolutionsPage = () => {
         fetchBlogs();
     }, []);
 
-    if(loading) return <LoadingDidYouKnow />
+    if (loading) return <LoadingDidYouKnow />
 
     if (error) {
         return <p className="text-center text-red-500 mt-6">{error}</p>;
@@ -56,7 +56,7 @@ const SolutionsPage = () => {
             <>
                 <div className="sticky top-17 z-0 w-full px-4 py-4 backdrop-blur-md bg-background/80 border-b border-border shadow">
                     <h1 className="text-2xl sm:text-3xl font-bold text-center">
-                        Occasionally Smarter Than Yesterday 👽
+                        DB Fuked UP I GUESS!
                     </h1>
                 </div>
                 <div className="text-center text-xl text-muted-foreground mt-12">
@@ -70,31 +70,34 @@ const SolutionsPage = () => {
         <div className="p-0 px-2 sm:px-4 md:px-6">
             <div className="sticky top-17 z-0 w-full px-4 py-4 backdrop-blur-md bg-background/80 border-b border-border shadow">
                 <h1 className="text-2xl sm:text-3xl font-bold text-center">
-                    Occasionally Smarter Than Yesterday 👽
+                    Trying LC Occasionally
                 </h1>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-                {solutions.map((solution) => (
-                    <Card
-                        key={solution.id}
-                        className="group transition-all duration-300 hover:scale-[1.02] hover:shadow-xl border border-muted shadow-sm dark:shadow-none hover:border-primary"
-                    >
-                        <CardHeader>
-                            <CardTitle className="text-lg sm:text-xl">
-                                {`Problem ${solution.problemNo}: ${solution.name}`}
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent className="flex flex-col gap-2">
-                            <p className="text-sm text-muted-foreground">{new Date(solution.createdAt).toLocaleDateString()}</p>
-                            <Button asChild className="w-fit mt-2">
-                                <Link href={solution.link} passHref target='_blank'>
-                                    See Solution
-                                </Link>
-                            </Button>
-                        </CardContent>
-                    </Card>
-                ))}
+                {solutions
+                    .slice()
+                    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+                    .map((solution) => (
+                        <Card
+                            key={solution.id}
+                            className="group transition-all duration-300 hover:scale-[1.02] hover:shadow-xl border border-muted shadow-sm dark:shadow-none hover:border-primary"
+                        >
+                            <CardHeader>
+                                <CardTitle className="text-lg sm:text-xl">
+                                    {`Problem ${solution.problemNo}: ${solution.name}`}
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent className="flex flex-col gap-2">
+                                <p className="text-sm text-muted-foreground">{new Date(solution.createdAt).toLocaleDateString()}</p>
+                                <Button asChild className="w-fit mt-2">
+                                    <Link href={solution.link} passHref target='_blank'>
+                                        See Solution
+                                    </Link>
+                                </Button>
+                            </CardContent>
+                        </Card>
+                    ))}
             </div>
         </div>
     );
