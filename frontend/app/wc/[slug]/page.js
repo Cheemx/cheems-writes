@@ -55,9 +55,6 @@ export default function DailyBlog({ params }) {
                     const processed = await unified()
                         .use(remarkParse)
                         .use(remarkRehype)
-                        .use(rehypeDocument)
-                        .use(rehypeFormat)
-                        .use(rehypeStringify)
                         .use(rehypeSlug)
                         .use(rehypeAutolinkHeadings)
                         .use(rehypePrettyCode, {
@@ -67,11 +64,14 @@ export default function DailyBlog({ params }) {
                             },
                             transformers: [
                                 transformerCopyButton({
-                                    visibility: "always",
+                                    visibility: 'always',
                                     feedbackDuration: 3_000,
-                                })
+                                }),
                             ],
                         })
+                        .use(rehypeDocument)
+                        .use(rehypeFormat)
+                        .use(rehypeStringify)
                         .process(data.content);
 
                     setHtml(processed.toString());
@@ -91,7 +91,7 @@ export default function DailyBlog({ params }) {
 
     const handleDelete = async () => {
         if (!confirm("Are you sure you want to delete this blog?")) return;
-// New Delete API need to be created yet!
+        // New Delete API need to be created yet!
         try {
             const res = await axios.delete(`https://cheems-writes.onrender.com/api/daily-blogs/${slug}`, {
                 headers: {
@@ -134,8 +134,8 @@ export default function DailyBlog({ params }) {
                             </div>
                             <div className="pt-2 pl-4">
                                 <Badge variant="outline" className="ml-auto py-1">
-                                {createdDate}
-                            </Badge>
+                                    {createdDate}
+                                </Badge>
                             </div>
                         </div>
 
