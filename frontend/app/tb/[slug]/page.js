@@ -55,9 +55,6 @@ export default function Solution({ params }) {
                     const processed = await unified()
                         .use(remarkParse)
                         .use(remarkRehype)
-                        .use(rehypeDocument)
-                        .use(rehypeFormat)
-                        .use(rehypeStringify)
                         .use(rehypeSlug)
                         .use(rehypeAutolinkHeadings)
                         .use(rehypePrettyCode, {
@@ -67,11 +64,14 @@ export default function Solution({ params }) {
                             },
                             transformers: [
                                 transformerCopyButton({
-                                    visibility: "always",
+                                    visibility: 'always',
                                     feedbackDuration: 3_000,
-                                })
+                                }),
                             ],
                         })
+                        .use(rehypeDocument)
+                        .use(rehypeFormat)
+                        .use(rehypeStringify)
                         .process(data.content);
 
                     setHtml(String(processed));
@@ -134,8 +134,8 @@ export default function Solution({ params }) {
                             </div>
                             <div className="pt-2 pl-4">
                                 <Badge variant="outline" className="ml-auto py-1">
-                                {createdDate}
-                            </Badge>
+                                    {createdDate}
+                                </Badge>
                             </div>
                         </div>
 

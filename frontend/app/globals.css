@@ -117,12 +117,15 @@
 .perspective {
     perspective: 1500px;
 }
+
 .transform-style {
     transform-style: preserve-3d;
 }
+
 .backface-hidden {
     backface-visibility: hidden;
 }
+
 .rotate-y-180 {
     transform: rotateY(180deg);
 }
@@ -131,20 +134,20 @@
     * {
         @apply border-border outline-ring/50;
     }
+
     body {
         @apply bg-background text-foreground;
     }
 }
 
+/* --- Line numbers --- */
 code[data-line-numbers] {
     counter-reset: line;
 }
 
-code[data-line-numbers] > [data-line]::before {
+code[data-line-numbers]>[data-line]::before {
     counter-increment: line;
     content: counter(line);
-
-    /* Other styling */
     display: inline-block;
     width: 0.75rem;
     margin-right: 2rem;
@@ -152,14 +155,83 @@ code[data-line-numbers] > [data-line]::before {
     color: gray;
 }
 
-code[data-line-numbers-max-digits="2"] > [data-line]::before {
+code[data-line-numbers-max-digits="2"]>[data-line]::before {
     width: 1.25rem;
 }
 
-code[data-line-numbers-max-digits="3"] > [data-line]::before {
+code[data-line-numbers-max-digits="3"]>[data-line]::before {
     width: 1.75rem;
 }
 
-code[data-line-numbers-max-digits="4"] > [data-line]::before {
+code[data-line-numbers-max-digits="4"]>[data-line]::before {
     width: 2.25rem;
+}
+
+/* --- Copy-to-Clipboard button --- */
+pre {
+    @apply relative rounded-xl p-4 overflow-x-auto bg-neutral-900 text-neutral-100;
+}
+
+:not(pre)>code {
+    @apply px-1 py-0.5 rounded-md bg-neutral-200 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200;
+}
+
+pre>button {
+    @apply absolute top-2 right-2 text-xs px-2 py-1 rounded-md bg-neutral-700 text-white hover:bg-neutral-600 transition;
+}
+
+pre>button[data-copied="true"] {
+    @apply bg-green-600;
+}
+
+.prose pre {
+    @apply bg-neutral-900 text-neutral-100 rounded-xl p-4 overflow-x-auto;
+}
+
+.prose code {
+    @apply font-mono text-sm;
+}
+
+/* --- Syntax Highlighting Tokens (rehype-pretty-code) --- */
+pre code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Keywords */
+pre code .token.keyword {
+    color: #ff7b72;
+    font-weight: 600;
+}
+
+/* Strings */
+pre code .token.string {
+    color: #a5d6ff;
+}
+
+/* Numbers */
+pre code .token.number {
+    color: #d19a66;
+}
+
+/* Functions */
+pre code .token.function {
+    color: #61afef;
+}
+
+/* Comments */
+pre code .token.comment {
+    color: #6a737d;
+    font-style: italic;
+}
+
+/* Variables */
+pre code .token.variable {
+    color: #e5c07b;
+}
+
+/* Types */
+pre code .token.type {
+    color: #56b6c2;
 }
