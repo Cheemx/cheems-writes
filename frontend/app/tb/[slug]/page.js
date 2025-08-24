@@ -164,7 +164,7 @@ export default function Solution({ params }) {
                     </div>
                 </CardHeader>
 
-                <CardContent className="max-w-none">
+                <CardContent className="prose dark:prose-invert max-w-none">
                     <div dangerouslySetInnerHTML={{ __html: html }} />
                 </CardContent>
             </Card>

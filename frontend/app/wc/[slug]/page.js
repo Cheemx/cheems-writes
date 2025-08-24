@@ -1,6 +1,7 @@
 // Page to represent a single blog by slug value
 "use client";
 
+import '@/app/globals.css'
 import {
     Card,
     CardContent,
