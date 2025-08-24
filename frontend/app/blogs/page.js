@@ -92,7 +92,7 @@ const Blogs = () => {
                                 </CardTitle>
                             </CardHeader>
                             <CardContent className="flex flex-col gap-2">
-                                <p className="text-sm text-muted-foreground line-clamp-1">
+                                <p className="text-sm text-muted-foreground line-clamp-2 ">
                                     {blog.description}
                                 </p>
                                 <p className="text-xs text-muted-foreground">

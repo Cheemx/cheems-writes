@@ -1,6 +1,7 @@
 // Page to represent specific tech-blog according to slug value
 "use client";
 
+import '@/app/globals.css'
 import {
     Card,
     CardContent,
@@ -69,7 +70,7 @@ export default function Solution({ params }) {
                                 }),
                             ],
                         })
-                        .use(rehypeDocument)
+                        // .use(rehypeDocument)
                         .use(rehypeFormat)
                         .use(rehypeStringify)
                         .process(data.content);
@@ -122,18 +123,22 @@ export default function Solution({ params }) {
     });
 
     return (
-        <div className="min-h-screen py-8 px-4 max-w-5xl mx-auto">
+        <div className="min-h-screen py-6 px-3 sm:px-6 lg:px-8 max-w-5xl mx-auto">
             <Card className="bg-background/90 backdrop-blur-md shadow-xl border border-border">
                 <CardHeader>
-                    <div className="flex justify-between items-start">
+                    <div className="flex flex-col sm:flex-row justify-between sm:items-start gap-3">
                         <div>
-                            <CardTitle className="text-3xl font-bold">{blog.title}</CardTitle>
-                            <div className="flex items-center text-sm text-muted-foreground mt-2">
-                                <div className="mr-2 italic font-semibold pl-4 border-l-4 border-primary text-lg">{blog.description}</div>
-                                <br />
+                            <CardTitle className="text-2xl sm:text-3xl font-bold leading-snug">
+                                {blog.title}
+                            </CardTitle>
+
+                            <div className="mt-2 pl-3 border-l-4 border-primary">
+                                <p className='text-base sm:text-lg italic font-medium text-muted-foreground line-clamp-3'>
+                                    {blog.description}
+                                </p>                                
                             </div>
-                            <div className="pt-2 pl-4">
-                                <Badge variant="outline" className="ml-auto py-1">
+                            <div className="mt-3 pl-3">
+                                <Badge variant="outline" className="py-1 px-3 text-xs sm:text-sm">
                                     {createdDate}
                                 </Badge>
                             </div>
@@ -159,7 +164,7 @@ export default function Solution({ params }) {
                     </div>
                 </CardHeader>
 
-                <CardContent className="prose dark:prose-invert max-w-none">
+                <CardContent className="max-w-none">
                     <div dangerouslySetInnerHTML={{ __html: html }} />
                 </CardContent>
             </Card>

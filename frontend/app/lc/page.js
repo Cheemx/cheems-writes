@@ -84,8 +84,8 @@ const SolutionsPage = () => {
                             className="group transition-all duration-300 hover:scale-[1.02] hover:shadow-xl border border-muted shadow-sm dark:shadow-none hover:border-primary"
                         >
                             <CardHeader>
-                                <CardTitle className="text-lg sm:text-xl">
-                                    {`Problem ${solution.problemNo}: ${solution.name}`}
+                                <CardTitle className="text-lg sm:text-xl line-clamp-1">
+                                    {`LC ${solution.problemNo}: ${solution.name}`}
                                 </CardTitle>
                             </CardHeader>
                             <CardContent className="flex flex-col gap-2">
