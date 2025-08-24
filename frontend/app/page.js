@@ -61,12 +61,11 @@ export default function IntroSection() {
                     </HoverCardTrigger>
                     <HoverCardContent side="bottom" align="start" className="w-80">
                         <p className="text-sm text-muted-foreground">
-                            Backend in Golang! 
+                            Backend in Golang!
                         </p>
                     </HoverCardContent>
                 </HoverCard>
             </h2>
-
 
             {/* Links */}
             <div className="flex gap-3 my-4">
@@ -87,7 +86,6 @@ export default function IntroSection() {
                 </Button>
             </div>
 
-            {/* Self Introduction Section */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -96,19 +94,37 @@ export default function IntroSection() {
                 className="relative my-8 pl-6 border-l-4 border-primary"
             >
                 <p className="text-base leading-relaxed text-foreground/90 italic">
-                    Hi! This is <span className="font-semibold text-foreground">Chinmay</span>. I enjoy exploring the fundamentals and functioning of backend systems. I wouldn&apos;t call myself a “backend enthusiast” just yet — but I&apos;m genuinely eager to learn more, especially about <span className="font-medium text-primary">Distributed Systems</span>.
+                    Hi! This is <span className="font-semibold text-foreground">Chinmay</span>.
+                    I enjoy exploring the fundamentals and inner workings of backend systems,
+                    with a strong interest in <span className="font-medium text-primary">Golang</span> and{" "}
+                    <span className="font-medium text-primary">Systems</span>.
                     <br /><br />
-                    I&apos;m a <span className="font-medium text-foreground">2025 pass-out</span>, completed my graduation in <span className="font-medium text-foreground">June 2025</span>. Right now, I&apos;m actively looking for a <span className="font-medium text-foreground">junior developer</span> or <span className="font-medium text-foreground">trainee role</span> in backend development.
+                    I&apos;ve recently completed my graduation in{" "}
+                    <span className="font-medium text-foreground">June 2025</span>.
+                    Right now, I&apos;m independently following{" "}
+                    <span className="font-medium text-foreground">Stream&apos;s 10-week Go Engineer onboarding plan</span>{" "}
+                    to sharpen my backend skills and get <span className="font-medium text-foreground">Better</span> at my craft.
                     <br /><br />
-                    I once heard: <span className="text-foreground font-medium">“If I don&apos;t show what I know, people (especially recruiters) won&apos;t know what I know!”</span> — so I built this platform to share what I learn. This site has three main sections: <span className="font-medium text-primary">Tech Blogs</span>, <span className="font-medium text-primary">LC Solutions</span>, and <span className="font-medium text-primary">What&apos;s Cookin&apos;?</span>. I aim to post something every 2–3 days.
-                    <br /><br />
-                    I might add notifications later if it feels necessary — till then,
+                    This site has three main sections:
                     <br />
-                    <span className="font-semibold text-primary">Enjoy the show!</span>
+                    <span className="font-medium text-primary">Tech Blogs</span> — where I write down my
+                    growing <span className="font-medium text-foreground">technological understanding</span> and document
+                    the progression of my knowledge.
+                    <br />
+                    <span className="font-medium text-primary">LC Solutions</span> — my solutions to LeetCode problems
+                    (still a work in progress, not the best — but it&apos;s honest).
+                    <br />
+                    <span className="font-medium text-primary">What&apos;s Cookin&apos;?</span> — periodic updates on what I&apos;m learning,
+                    building, or experimenting with.
+                    <br /><br />
+                    If you&apos;re a potential recruiter, I&apos;d encourage you to check out these sections — they reflect
+                    how I learn, apply, and grow in backend development.
+                    <br />
+                    <span className="font-medium text-foreground">Thanks! and</span>
+                    <br /><br />
+                    <span className="font-semibold text-primary">Enjoy the Show!</span>
                 </p>
             </motion.div>
-
-
 
             {/* Projects */}
             <p className="text-2xl font-semibold mt-6 mb-4">Projects:</p>
