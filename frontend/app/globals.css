@@ -10,33 +10,18 @@
     --color-foreground: var(--foreground);
     --font-sans: var(--font-geist-sans);
     --font-mono: var(--font-geist-mono);
-    --color-sidebar-ring: var(--sidebar-ring);
-    --color-sidebar-border: var(--sidebar-border);
-    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-    --color-sidebar-accent: var(--sidebar-accent);
-    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-    --color-sidebar-primary: var(--sidebar-primary);
-    --color-sidebar-foreground: var(--sidebar-foreground);
-    --color-sidebar: var(--sidebar);
-    --color-chart-5: var(--chart-5);
-    --color-chart-4: var(--chart-4);
-    --color-chart-3: var(--chart-3);
-    --color-chart-2: var(--chart-2);
-    --color-chart-1: var(--chart-1);
     --color-ring: var(--ring);
     --color-input: var(--input);
     --color-border: var(--border);
     --color-destructive: var(--destructive);
-    --color-accent-foreground: var(--accent-foreground);
-    --color-accent: var(--accent);
     --color-muted-foreground: var(--muted-foreground);
     --color-muted: var(--muted);
     --color-secondary-foreground: var(--secondary-foreground);
     --color-secondary: var(--secondary);
     --color-primary-foreground: var(--primary-foreground);
     --color-primary: var(--primary);
-    --color-popover-foreground: var(--popover-foreground);
-    --color-popover: var(--popover);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
     --color-card-foreground: var(--card-foreground);
     --color-card: var(--card);
     --radius-sm: calc(var(--radius) - 4px);
@@ -45,75 +30,67 @@
     --radius-xl: calc(var(--radius) + 4px);
 }
 
+/* ---------------- Base Styles ---------------- */
 :root {
     --radius: 0.5rem;
     --background: oklch(1 0 0);
     --foreground: oklch(0.141 0.005 285.823);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.141 0.005 285.823);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.141 0.005 285.823);
+    --card: var(--background);
+    --card-foreground: var(--foreground);
+    --popover: var(--background);
+    --popover-foreground: var(--foreground);
     --primary: oklch(0.637 0.237 25.331);
     --primary-foreground: oklch(0.971 0.013 17.38);
     --secondary: oklch(0.967 0.001 286.375);
     --secondary-foreground: oklch(0.21 0.006 285.885);
-    --muted: oklch(0.967 0.001 286.375);
+    --muted: var(--secondary);
     --muted-foreground: oklch(0.552 0.016 285.938);
-    --accent: oklch(0.967 0.001 286.375);
+    --accent: var(--secondary);
     --accent-foreground: oklch(0.21 0.006 285.885);
     --destructive: oklch(0.577 0.245 27.325);
     --border: oklch(0.92 0.004 286.32);
-    --input: oklch(0.92 0.004 286.32);
-    --ring: oklch(0.637 0.237 25.331);
-    --chart-1: oklch(0.646 0.222 41.116);
-    --chart-2: oklch(0.6 0.118 184.704);
-    --chart-3: oklch(0.398 0.07 227.392);
-    --chart-4: oklch(0.828 0.189 84.429);
-    --chart-5: oklch(0.769 0.188 70.08);
+    --input: var(--border);
+    --ring: var(--primary);
     --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.141 0.005 285.823);
-    --sidebar-primary: oklch(0.637 0.237 25.331);
-    --sidebar-primary-foreground: oklch(0.971 0.013 17.38);
-    --sidebar-accent: oklch(0.967 0.001 286.375);
-    --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
-    --sidebar-border: oklch(0.92 0.004 286.32);
-    --sidebar-ring: oklch(0.637 0.237 25.331);
+    --sidebar-foreground: var(--foreground);
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: var(--primary-foreground);
+    --sidebar-accent: var(--secondary);
+    --sidebar-accent-foreground: var(--accent-foreground);
+    --sidebar-border: var(--border);
+    --sidebar-ring: var(--ring);
 }
 
 .dark {
     --background: oklch(0.141 0.005 285.823);
     --foreground: oklch(0.985 0 0);
     --card: oklch(0.21 0.006 285.885);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.21 0.006 285.885);
-    --popover-foreground: oklch(0.985 0 0);
+    --card-foreground: var(--foreground);
+    --popover: var(--card);
+    --popover-foreground: var(--foreground);
     --primary: oklch(0.637 0.237 25.331);
     --primary-foreground: oklch(0.971 0.013 17.38);
     --secondary: oklch(0.274 0.006 286.033);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.274 0.006 286.033);
+    --secondary-foreground: var(--foreground);
+    --muted: var(--secondary);
     --muted-foreground: oklch(0.705 0.015 286.067);
-    --accent: oklch(0.274 0.006 286.033);
-    --accent-foreground: oklch(0.985 0 0);
+    --accent: var(--secondary);
+    --accent-foreground: var(--foreground);
     --destructive: oklch(0.704 0.191 22.216);
     --border: oklch(1 0 0 / 10%);
     --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.637 0.237 25.331);
-    --chart-1: oklch(0.488 0.243 264.376);
-    --chart-2: oklch(0.696 0.17 162.48);
-    --chart-3: oklch(0.769 0.188 70.08);
-    --chart-4: oklch(0.627 0.265 303.9);
-    --chart-5: oklch(0.645 0.246 16.439);
-    --sidebar: oklch(0.21 0.006 285.885);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.637 0.237 25.331);
-    --sidebar-primary-foreground: oklch(0.971 0.013 17.38);
-    --sidebar-accent: oklch(0.274 0.006 286.033);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.637 0.237 25.331);
+    --ring: var(--primary);
+    --sidebar: var(--card);
+    --sidebar-foreground: var(--foreground);
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: var(--primary-foreground);
+    --sidebar-accent: var(--secondary);
+    --sidebar-accent-foreground: var(--accent-foreground);
+    --sidebar-border: var(--border);
+    --sidebar-ring: var(--ring);
 }
 
+/* Perspective utils */
 .perspective {
     perspective: 1500px;
 }
@@ -140,576 +117,439 @@
     }
 }
 
-/* --- Line numbers --- */
-code[data-line-numbers] {
-    counter-reset: line;
-}
-
-code[data-line-numbers]>[data-line]::before {
-    counter-increment: line;
-    content: counter(line);
-    display: inline-block;
-    width: 0.75rem;
-    margin-right: 2rem;
-    text-align: right;
-    color: gray;
-}
-
-code[data-line-numbers-max-digits="2"]>[data-line]::before {
-    width: 1.25rem;
-}
-
-code[data-line-numbers-max-digits="3"]>[data-line]::before {
-    width: 1.75rem;
-}
-
-code[data-line-numbers-max-digits="4"]>[data-line]::before {
-    width: 2.25rem;
-}
-
-/* --- Copy-to-Clipboard button --- */
-pre {
+/* ---------------- Code Styling ---------------- */
+pre,
+.prose pre {
     @apply relative rounded-xl p-4 overflow-x-auto bg-neutral-900 text-neutral-100;
+}
+
+.prose pre {
+    border: 1px solid #30363d !important;
 }
 
 :not(pre)>code {
     @apply px-1 py-0.5 rounded-md bg-neutral-200 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200;
 }
 
-pre>button {
-    @apply absolute top-2 right-2 text-xs px-2 py-1 rounded-md bg-neutral-700 text-white hover:bg-neutral-600 transition;
-}
-
-pre>button[data-copied="true"] {
-    @apply bg-green-600;
-}
-
-.prose pre {
-    @apply bg-neutral-900 text-neutral-100 rounded-xl p-4 overflow-x-auto;
-}
-
 .prose code {
     @apply font-mono text-sm;
 }
 
-/* --- Syntax Highlighting Tokens (rehype-pretty-code) --- */
 pre code {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-size: 0.9rem;
     line-height: 1.6;
 }
 
-/* Keywords */
+/* Syntax Highlight Tokens */
 pre code .token.keyword {
     color: #ff7b72;
     font-weight: 600;
 }
 
-/* Strings */
 pre code .token.string {
     color: #a5d6ff;
 }
 
-/* Numbers */
 pre code .token.number {
     color: #d19a66;
 }
 
-/* Functions */
 pre code .token.function {
     color: #61afef;
 }
 
-/* Comments */
 pre code .token.comment {
     color: #6a737d;
     font-style: italic;
 }
 
-/* Variables */
 pre code .token.variable {
     color: #e5c07b;
 }
 
-/* Types */
 pre code .token.type {
     color: #56b6c2;
 }
 
-.prose pre code .token.keyword,
-.prose pre code [data-rehype-pretty-code-figure] .token.keyword {
-    color: #ff7b72 !important;
-    font-weight: 600 !important;
+/* ---------------- Prose (Markdown) ---------------- */
+.prose {
+    max-width: none;
 }
 
-.prose pre code .token.string,
-.prose pre code [data-rehype-pretty-code-figure] .token.string {
-    color: #a5d6ff !important;
-}
-
-.prose pre code .token.number,
-.prose pre code [data-rehype-pretty-code-figure] .token.number {
-    color: #d19a66 !important;
-}
-
-.prose pre code .token.function,
-.prose pre code [data-rehype-pretty-code-figure] .token.function {
-    color: #61afef !important;
-}
-
-.prose pre code .token.comment,
-.prose pre code [data-rehype-pretty-code-figure] .token.comment {
-    color: #6a737d !important;
-    font-style: italic !important;
-}
-
-.prose pre code .token.variable,
-.prose pre code [data-rehype-pretty-code-figure] .token.variable {
-    color: #e5c07b !important;
-}
-
-.prose pre code .token.type,
-.prose pre code [data-rehype-pretty-code-figure] .token.type {
-    color: #56b6c2 !important;
-}
-
-/* Also override any prose pre styling that might interfere */
-.prose pre {
-    background-color: #0d1117 !important;
-    color: #e6edf3 !important;
-}
-
-.prose pre code {
-    background-color: transparent !important;
-    color: inherit !important;
-}
-
-/* Shiki syntax highlighting support */
-.prose pre code span {
-    color: var(--shiki-dark) !important;
-}
-
-/* Ensure Shiki colors work in dark mode */
-@media (prefers-color-scheme: dark) {
-    .prose pre code span {
-        color: var(--shiki-dark) !important;
-    }
-}
-
-/* Light mode */
-@media (prefers-color-scheme: light) {
-    .prose pre code span {
-        color: var(--shiki-light) !important;
-    }
-}
-
-/* For manual dark mode class */
-.dark .prose pre code span {
-    color: var(--shiki-dark) !important;
-}
-
-/* Ensure the background respects your theme */
-.prose pre {
-    background-color: var(--shiki-dark-bg, #24292e) !important;
-}
-
-.dark .prose pre {
-    background-color: var(--shiki-dark-bg, #24292e) !important;
-}
-
-/* Enhanced markdown styling for prose */
-
-/* Links - Blue and interactive */
 .prose a {
     color: #58a6ff !important;
-    text-decoration: underline !important;
-    text-decoration-color: #58a6ff !important;
-    text-underline-offset: 2px !important;
-    transition: all 0.2s ease !important;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: all 0.2s;
 }
 
 .prose a:hover {
     color: #79c0ff !important;
-    text-decoration-color: #79c0ff !important;
-    text-decoration-thickness: 2px !important;
+    text-decoration-thickness: 2px;
 }
 
 .prose a:visited {
     color: #bc8cff !important;
-    text-decoration-color: #bc8cff !important;
 }
 
-/* Headings - More colorful */
+/* Headings */
 .prose h1 {
-    color: #f0f6fc !important;
-    border-bottom: 2px solid #21262d !important;
-    padding-bottom: 0.5rem !important;
+    color: #f0f6fc;
+    border-bottom: 2px solid #21262d;
+    padding-bottom: 0.5rem;
 }
 
 .prose h2 {
-    color: #7dd3fc !important;
-    border-bottom: 1px solid #30363d !important;
-    padding-bottom: 0.3rem !important;
+    color: #7dd3fc;
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 0.3rem;
 }
 
 .prose h3 {
-    color: #a5f3fc !important;
+    color: #a5f3fc;
 }
 
 .prose h4 {
-    color: #bfdbfe !important;
+    color: #bfdbfe;
 }
 
-.prose h5, .prose h6 {
-    color: #c7d2fe !important;
+.prose h5,
+.prose h6 {
+    color: #c7d2fe;
 }
 
-/* Blockquotes - Styled with accent */
+/* Blockquotes */
 .prose blockquote {
-    border-left: 4px solid #58a6ff !important;
-    background: rgba(88, 166, 255, 0.1) !important;
-    padding: 1rem 1.5rem !important;
-    margin: 1.5rem 0 !important;
-    border-radius: 0 6px 6px 0 !important;
+    border-left: 4px solid #58a6ff;
+    background: rgba(88, 166, 255, 0.1);
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
 }
 
 .prose blockquote p {
-    color: #c9d1d9 !important;
-    font-style: italic !important;
-    margin: 0 !important;
+    color: #c9d1d9;
+    font-style: italic;
+    margin: 0;
 }
 
-/* Lists - Better spacing and bullets */
+/* Lists */
 .prose ul {
-    list-style: none !important;
-    padding-left: 0 !important;
+    list-style: none;
+    padding-left: 0;
 }
 
 .prose ul li {
-    position: relative !important;
-    padding-left: 1.5rem !important;
-    margin: 0.5rem 0 !important;
+    position: relative;
+    padding-left: 1.5rem;
+    margin: 0.5rem 0;
 }
 
 .prose ul li::before {
-    content: "•" !important;
-    color: #58a6ff !important;
-    font-weight: bold !important;
-    position: absolute !important;
-    left: 0 !important;
-    top: 0 !important;
+    content: "•";
+    color: #58a6ff;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
-.prose ol li {
-    margin: 0.5rem 0 !important;
-    color: #e6edf3 !important;
-}
-
-/* Strong/Bold text */
+/* Strong & Italic */
 .prose strong {
-    color: #fbbf24 !important;
-    font-weight: 600 !important;
+    color: #fbbf24;
+    font-weight: 600;
 }
 
-/* Emphasis/Italic text */
 .prose em {
-    color: #a78bfa !important;
-    font-style: italic !important;
+    color: #a78bfa;
+    font-style: italic;
 }
 
 /* Inline code */
 .prose code:not(pre code) {
-    background: rgba(110, 118, 129, 0.4) !important;
-    color: #ff7b72 !important;
-    padding: 2px 6px !important;
-    border-radius: 4px !important;
-    font-size: 0.875em !important;
-    border: 1px solid rgba(110, 118, 129, 0.6) !important;
+    background: rgba(110, 118, 129, 0.4);
+    color: #ff7b72;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid rgba(110, 118, 129, 0.6);
+    font-size: 0.875em;
 }
 
 /* Tables */
 .prose table {
-    border-collapse: collapse !important;
-    border: 1px solid #30363d !important;
-    border-radius: 6px !important;
-    overflow: hidden !important;
+    border-collapse: collapse;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    overflow: hidden;
 }
 
-.prose table thead {
-    background: #161b22 !important;
+.prose table th,
+.prose table td {
+    padding: 12px;
+    border: 1px solid #30363d;
 }
 
 .prose table th {
-    background: #21262d !important;
-    color: #f0f6fc !important;
-    font-weight: 600 !important;
-    padding: 12px !important;
-    border: 1px solid #30363d !important;
+    background: #21262d;
+    color: #f0f6fc;
+    font-weight: 600;
 }
 
 .prose table td {
-    padding: 12px !important;
-    border: 1px solid #30363d !important;
-    color: #e6edf3 !important;
+    color: #e6edf3;
 }
 
 .prose table tr:nth-child(even) {
-    background: rgba(110, 118, 129, 0.1) !important;
+    background: rgba(110, 118, 129, 0.1);
 }
 
-/* Horizontal rules */
+/* Horizontal rule */
 .prose hr {
-    border: none !important;
-    height: 2px !important;
-    background: linear-gradient(90deg, transparent, #30363d, transparent) !important;
-    margin: 2rem 0 !important;
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #30363d, transparent);
+    margin: 2rem 0;
 }
 
-/* Light mode overrides */
-@media (prefers-color-scheme: light) {
-    .prose a {
-        color: #0969da !important;
-        text-decoration-color: #0969da !important;
-    }
-    
-    .prose a:hover {
-        color: #0550ae !important;
-        text-decoration-color: #0550ae !important;
-    }
-    
-    .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
-        color: #1f2328 !important;
-    }
-    
-    .prose blockquote {
-        background: rgba(9, 105, 218, 0.1) !important;
-        border-left-color: #0969da !important;
-    }
-    
-    .prose blockquote p {
-        color: #656d76 !important;
-    }
-    
-    .prose code:not(pre code) {
-        background: rgba(175, 184, 193, 0.2) !important;
-        color: #cf222e !important;
-        border-color: rgba(175, 184, 193, 0.4) !important;
-    }
-}
-
-/* Manual dark class overrides */
+/* ---------------- Light Mode Overrides ---------------- */
 :root:not(.dark) .prose a {
-    color: #0969da !important;
-    text-decoration-color: #0969da !important;
+    color: #0969da;
 }
 
 :root:not(.dark) .prose a:hover {
-    color: #0550ae !important;
-    text-decoration-color: #0550ae !important;
-}
-
-/* Better code block styling */
-.prose pre {
-    background: #0d1117 !important;
-    border: 1px solid #30363d !important;
-    border-radius: 6px !important;
-    padding: 16px !important;
-    margin: 1.5rem 0 !important;
-    overflow-x: auto !important;
-    position: relative !important;
-}
-
-/* Language badge for code blocks */
-.prose pre[data-language]::before {
-    content: attr(data-language) !important;
-    position: absolute !important;
-    top: 8px !important;
-    right: 8px !important;
-    background: #21262d !important;
-    color: #7d8590 !important;
-    padding: 2px 8px !important;
-    border-radius: 4px !important;
-    font-size: 0.75rem !important;
-    text-transform: uppercase !important;
-    font-weight: 500 !important;
-    z-index: 1 !important;
-}
-
-/* Light mode overrides with better contrast */
-@media (prefers-color-scheme: light) {
-    .prose a {
-        color: #0969da !important;
-        text-decoration-color: #0969da !important;
-    }
-    
-    .prose a:hover {
-        color: #0550ae !important;
-        text-decoration-color: #0550ae !important;
-    }
-    
-    .prose a:visited {
-        color: #8250df !important;
-        text-decoration-color: #8250df !important;
-    }
-    
-    /* Better heading colors for light mode */
-    .prose h1 {
-        color: #1f2328 !important;
-        border-bottom-color: #d1d9e0 !important;
-    }
-    
-    .prose h2 {
-        color: #0969da !important;
-        border-bottom-color: #d1d9e0 !important;
-    }
-    
-    .prose h3 {
-        color: #0550ae !important;
-    }
-    
-    .prose h4 {
-        color: #8250df !important;
-    }
-    
-    .prose h5, .prose h6 {
-        color: #6f42c1 !important;
-    }
-    
-    /* Better text colors */
-    .prose p, .prose li {
-        color: #1f2328 !important;
-    }
-    
-    /* Blockquotes */
-    .prose blockquote {
-        background: rgba(9, 105, 218, 0.1) !important;
-        border-left-color: #0969da !important;
-    }
-    
-    .prose blockquote p {
-        color: #1f2328 !important;
-    }
-    
-    /* Strong/Bold */
-    .prose strong {
-        color: #d1242f !important;
-    }
-    
-    /* Emphasis/Italic */
-    .prose em {
-        color: #8250df !important;
-    }
-    
-    /* Inline code */
-    .prose code:not(pre code) {
-        background: #f6f8fa !important;
-        color: #d1242f !important;
-        border: 1px solid #d1d9e0 !important;
-    }
-    
-    /* Lists */
-    .prose ul li::before {
-        color: #0969da !important;
-    }
-    
-    /* Tables */
-    .prose table {
-        border-color: #d1d9e0 !important;
-    }
-    
-    .prose table th {
-        background: #f6f8fa !important;
-        color: #1f2328 !important;
-        border-color: #d1d9e0 !important;
-    }
-    
-    .prose table td {
-        border-color: #d1d9e0 !important;
-        color: #1f2328 !important;
-    }
-    
-    .prose table tr:nth-child(even) {
-        background: #f6f8fa !important;
-    }
-    
-    /* Code blocks */
-    .prose pre {
-        background: #f6f8fa !important;
-        border-color: #d1d9e0 !important;
-    }
-    
-    .prose pre[data-language]::before {
-        background: #ffffff !important;
-        color: #656d76 !important;
-        border: 1px solid #d1d9e0 !important;
-    }
-}
-
-/* Manual light class overrides (for when you use .light class instead of system preference) */
-:root:not(.dark) .prose a {
-    color: #0969da !important;
-    text-decoration-color: #0969da !important;
-}
-
-:root:not(.dark) .prose a:hover {
-    color: #0550ae !important;
-    text-decoration-color: #0550ae !important;
+    color: #0550ae;
 }
 
 :root:not(.dark) .prose a:visited {
-    color: #8250df !important;
-    text-decoration-color: #8250df !important;
+    color: #8250df;
 }
 
 :root:not(.dark) .prose h1 {
-    color: #1f2328 !important;
-    border-bottom-color: #d1d9e0 !important;
+    color: #1f2328;
+    border-bottom-color: #d1d9e0;
 }
 
 :root:not(.dark) .prose h2 {
-    color: #0969da !important;
-    border-bottom-color: #d1d9e0 !important;
+    color: #0969da;
+    border-bottom-color: #d1d9e0;
 }
 
 :root:not(.dark) .prose h3 {
-    color: #0550ae !important;
+    color: #0550ae;
 }
 
 :root:not(.dark) .prose h4 {
-    color: #8250df !important;
+    color: #8250df;
 }
 
-:root:not(.dark) .prose h5, :root:not(.dark) .prose h6 {
-    color: #6f42c1 !important;
+:root:not(.dark) .prose h5,
+:root:not(.dark) .prose h6 {
+    color: #6f42c1;
 }
 
-:root:not(.dark) .prose p, :root:not(.dark) .prose li {
-    color: #1f2328 !important;
+:root:not(.dark) .prose p,
+:root:not(.dark) .prose li {
+    color: #1f2328;
 }
 
 :root:not(.dark) .prose strong {
-    color: #d1242f !important;
+    color: #d1242f;
 }
 
 :root:not(.dark) .prose em {
-    color: #8250df !important;
-}
-
-:root:not(.dark) .prose code:not(pre code) {
-    background: #f6f8fa !important;
-    color: #d1242f !important;
-    border: 1px solid #d1d9e0 !important;
+    color: #8250df;
 }
 
 :root:not(.dark) .prose blockquote {
-    background: rgba(9, 105, 218, 0.1) !important;
-    border-left-color: #0969da !important;
+    background: rgba(9, 105, 218, 0.1);
+    border-left-color: #0969da;
 }
 
 :root:not(.dark) .prose blockquote p {
-    color: #1f2328 !important;
+    color: #1f2328;
 }
 
-:root:not(.dark) .prose ul li::before {
-    color: #0969da !important;
+:root:not(.dark) .prose code:not(pre code) {
+    background: #f6f8fa;
+    color: #d1242f;
+    border: 1px solid #d1d9e0;
+}
+
+:root:not(.dark) .prose table,
+:root:not(.dark) .prose th,
+:root:not(.dark) .prose td {
+    border-color: #d1d9e0;
+}
+
+:root:not(.dark) .prose th {
+    background: #f6f8fa;
+    color: #1f2328;
+}
+
+:root:not(.dark) .prose td {
+    color: #1f2328;
+}
+
+:root:not(.dark) .prose tr:nth-child(even) {
+    background: #f6f8fa;
+}
+
+/* ---------------- Shiki Syntax Highlighting ---------------- */
+.prose pre code span {
+    color: var(--shiki-dark) !important;
+}
+
+.dark .prose pre code span {
+    color: var(--shiki-dark) !important;
+}
+
+:root:not(.dark) .prose pre code span {
+    color: var(--shiki-light) !important;
+}
+
+/* Ensure Shiki backgrounds work */
+.prose pre {
+    background-color: var(--shiki-dark-bg, #24292e) !important;
+}
+
+:root:not(.dark) .prose pre {
+    background-color: var(--shiki-light-bg, #ffffff) !important;
+    color: #24292e !important;
+    border: 1px solid #d1d9e0 !important;
+}
+
+/* ---------------- Copy Button ---------------- */
+pre button.rehype-pretty-copy {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 4px 8px;
+    background: rgba(110, 118, 129, 0.8);
+    color: #e6edf3;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    backdrop-filter: blur(4px);
+}
+
+pre button.rehype-pretty-copy:hover {
+    background: rgba(110, 118, 129, 1);
+}
+
+pre button.rehype-pretty-copy.rehype-pretty-copied {
+    background: #238636;
+    color: #ffffff;
+}
+
+:root:not(.dark) pre button.rehype-pretty-copy {
+    background: rgba(110, 118, 129, 0.2);
+    color: #656d76;
+    border: 1px solid #d1d9e0;
+}
+
+:root:not(.dark) pre button.rehype-pretty-copy:hover {
+    background: rgba(110, 118, 129, 0.3);
+}
+
+/* ---------------- Language Badge ---------------- */
+.prose pre[data-language]::before {
+    content: attr(data-language);
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: rgba(110, 118, 129, 0.8);
+    color: #e6edf3;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    z-index: 1;
+    backdrop-filter: blur(4px);
+}
+
+:root:not(.dark) .prose pre[data-language]::before {
+    background: rgba(110, 118, 129, 0.2);
+    color: #656d76;
+    border: 1px solid #d1d9e0;
+}
+
+/* ---------------- Fix for unhighlighted code blocks ---------------- */
+.prose pre code span:not([style]) {
+    color: #e6edf3 !important;
+}
+
+:root:not(.dark) .prose pre code span:not([style]) {
+    color: #24292e !important;
+}
+
+/* ---------------- Language Badge Fix ---------------- */
+.prose pre {
+    position: relative;
+    padding-top: 2.5rem !important;
+    /* Add extra top padding when there's a language badge */
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+/* Only add extra padding if there's a language attribute */
+.prose pre[data-language] {
+    padding-top: 3rem !important;
+    /* Even more space for the badge */
+}
+
+.prose pre[data-language]::before {
+    content: attr(data-language);
+    position: absolute;
+    top: 0.5rem;
+    /* Move it higher up */
+    left: 0.75rem;
+    /* Move it slightly right */
+    background: rgba(110, 118, 129, 0.9);
+    color: #e6edf3;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    z-index: 2;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(110, 118, 129, 0.3);
+}
+
+/* Copy button positioning - move it down to avoid language badge */
+pre button.rehype-pretty-copy {
+    position: absolute;
+    top: 0.5rem;
+    /* Same level as language badge */
+    right: 0.75rem;
+    /* Align with badge on opposite side */
+    padding: 4px 8px;
+    background: rgba(110, 118, 129, 0.9);
+    color: #e6edf3;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    backdrop-filter: blur(4px);
+    z-index: 2;
+    border: 1px solid rgba(110, 118, 129, 0.3);
+}
+
+/* Light mode adjustments */
+:root:not(.dark) .prose pre[data-language]::before {
+    background: rgba(255, 255, 255, 0.9);
+    color: #656d76;
+    border: 1px solid #d1d9e0;
+}
+
+:root:not(.dark) pre button.rehype-pretty-copy {
+    background: rgba(255, 255, 255, 0.9);
+    color: #656d76;
+    border: 1px solid #d1d9e0;
 }
