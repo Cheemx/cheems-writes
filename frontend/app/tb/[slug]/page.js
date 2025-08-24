@@ -123,29 +123,32 @@ export default function Solution({ params }) {
     });
 
     return (
-        <div className="min-h-screen py-6 px-3 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+        <div className="min-h-screen py-6 px-3 sm:px-6 lg:px-8 max-w-3xl sm:max-w-4xl lg:max-w-5xl mx-auto">
             <Card className="bg-background/90 backdrop-blur-md shadow-xl border border-border">
                 <CardHeader>
-                    <div className="flex flex-col sm:flex-row justify-between sm:items-start gap-3">
-                        <div>
-                            <CardTitle className="text-2xl sm:text-3xl font-bold leading-snug">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
+                        {/* Title + Description + Date */}
+                        <div className="flex-1">
+                            <CardTitle className="text-xl sm:text-2xl md:text-3xl font-bold leading-snug break-words">
                                 {blog.title}
                             </CardTitle>
 
-                            <div className="mt-2 pl-3 border-l-4 border-primary">
-                                <p className='text-base sm:text-lg italic font-medium text-muted-foreground line-clamp-3'>
+                            <div className="mt-2 sm:pl-3 sm:border-l-4 border-primary">
+                                <p className="text-sm sm:text-base md:text-lg italic font-medium text-muted-foreground">
                                     {blog.description}
-                                </p>                                
+                                </p>
                             </div>
-                            <div className="mt-3 pl-3">
+
+                            <div className="mt-3 sm:pl-3">
                                 <Badge variant="outline" className="py-1 px-3 text-xs sm:text-sm">
                                     {createdDate}
                                 </Badge>
                             </div>
                         </div>
 
+                        {/* Admin Actions */}
                         {token && (
-                            <div className="flex gap-2 mt-1">
+                            <div className="flex gap-2 mt-3 sm:mt-1 self-start sm:self-auto">
                                 <Link href={`/admin/edit-blog/${slug}`}>
                                     <Button size="icon" variant="outline" title="Edit blog">
                                         <Pencil className="w-4 h-4" />
@@ -164,10 +167,11 @@ export default function Solution({ params }) {
                     </div>
                 </CardHeader>
 
-                <CardContent className="prose dark:prose-invert max-w-none">
+                <CardContent className="prose dark:prose-invert max-w-none prose-pre:whitespace-pre-wrap prose-pre:break-words prose-code:break-words overflow-x-auto">
                     <div dangerouslySetInnerHTML={{ __html: html }} />
                 </CardContent>
             </Card>
         </div>
+
     );
 }
