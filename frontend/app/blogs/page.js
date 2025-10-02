@@ -96,7 +96,7 @@ const Blogs = () => {
                                     {blog.description}
                                 </p>
                                 <p className="text-xs text-muted-foreground">
-                                    {new Date(blog.createdAt).toLocaleDateString()}
+                                    {new Date(blog.createdAt).toLocaleDateString('en-GB')}
                                 </p>
                                 <div className="mt-3">
                                     <Button asChild variant="default" className="w-fit">

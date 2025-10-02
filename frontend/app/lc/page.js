@@ -3,15 +3,10 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import {
-    Card,
-    CardHeader,
-    CardTitle,
-    CardContent,
-} from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import axios from 'axios';
 import LoadingDidYouKnow from '@/components/loading';
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 
 const SolutionsPage = () => {
     const [solutions, setSolutions] = useState([]);
@@ -68,34 +63,47 @@ const SolutionsPage = () => {
 
     return (
         <div className="p-0 px-2 sm:px-4 md:px-6">
-            <div className="sticky top-17 z-0 w-full px-4 py-4 backdrop-blur-md bg-background/80 border-b border-border shadow">
+            {/* Sticky Header */}
+            <div className="sticky top-17 z-10 w-full px-4 py-4 backdrop-blur-md bg-background/80 border-b border-border shadow-sm">
                 <h1 className="text-2xl sm:text-3xl font-bold text-center">
                     Trying LC Occasionally
                 </h1>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+            {/* Grid of Cards */}
+            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {solutions
                     .slice()
-                    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+                    .sort(
+                        (a, b) =>
+                            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+                    )
                     .map((solution) => (
                         <Card
                             key={solution.id}
-                            className="group transition-all duration-300 hover:scale-[1.02] hover:shadow-xl border border-muted shadow-sm dark:shadow-none hover:border-primary"
+                            className="flex flex-col justify-between hover:shadow-md transition-shadow"
                         >
                             <CardHeader>
-                                <CardTitle className="text-lg sm:text-xl line-clamp-1">
+                                <CardTitle className="text-base sm:text-lg font-semibold truncate">
                                     {`LC ${solution.problemNo}: ${solution.name}`}
                                 </CardTitle>
+                                <CardDescription className="text-xs text-muted-foreground">
+                                    {new Date(solution.createdAt).toLocaleDateString("en-GB")}
+                                </CardDescription>
                             </CardHeader>
-                            <CardContent className="flex flex-col gap-2">
-                                <p className="text-sm text-muted-foreground">{new Date(solution.createdAt).toLocaleDateString()}</p>
-                                <Button asChild className="w-fit mt-2">
-                                    <Link href={solution.link} passHref target='_blank'>
+
+                            <CardFooter className="mt-auto">
+                                <Button
+                                    asChild
+                                    variant="default"
+                                    size="sm"
+                                    className="w-fit hover:bg-primary/10"
+                                >
+                                    <Link href={solution.link} target="_blank">
                                         See Solution
                                     </Link>
                                 </Button>
-                            </CardContent>
+                            </CardFooter>
                         </Card>
                     ))}
             </div>
