@@ -39,6 +39,11 @@ const keyProjects = [
 
 const wipProjects = [
     {
+        name: "Go-gRPC-GraphQL",
+        desc: "Trying to explore and understand grpc and graphQL in golang",
+        git: "https://github.com/Cheemx/learning-go-grpc-graphql"
+    },
+    {
         name: "Forever-Store",
         desc: "Distributed file storage library in Go. Encrypted peer-to-peer CAS storage.",
         git: "https://github.com/Cheemx/forever-store",
@@ -55,7 +60,7 @@ const wipProjects = [
 const repos = [
     {
         name: "Exercism-Go",
-        desc: "Daily Go exercises. Progress: 41.1% (58/141 solved).",
+        desc: "Daily dose of brain-tickle.",
         git: "https://github.com/Cheemx/exercism_go",
     },
     {
@@ -222,7 +227,7 @@ export default function IntroSection() {
             </div>
 
             {/* Repos */}
-            <SectionTitle>Additional Repositories</SectionTitle>
+            <SectionTitle>Additional Repositories Worth checking out</SectionTitle>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {repos.map((p, i) => <ProjectCard key={i} project={p} />)}
             </div>
